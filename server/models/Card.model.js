@@ -33,9 +33,12 @@ const cardSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  pisteDetails: {
-    type: String, // Les détails de la piste, s'il y en a.
-  },
+  pistes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Piste',
+    },
+  ],
 });
 
 const Card = model('Card', cardSchema);

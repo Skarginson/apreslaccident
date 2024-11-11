@@ -35,7 +35,8 @@ const gameLogSchema = new Schema({
     },
   },
   pisteFollowed: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Piste',
     required: function () {
       return this.actionType === 'FOLLOW_PISTE';
     },
