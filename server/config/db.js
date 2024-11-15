@@ -1,13 +1,9 @@
 const mongoose = require('mongoose');
-const { MONGO_URI, PORT } = require('../../consts');
+const { MONGO_URI, PORT } = require('../consts');
 
 async function connectDB() {
   try {
-    const db = await mongoose.connect(MONGO_URI, {
-      // Options de connections à la BDD > Meilleure compatibilité et performances.
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const db = await mongoose.connect(MONGO_URI);
 
     console.log(`Connected to DB: ${db.connection.name} on port ${PORT}`);
   } catch (error) {

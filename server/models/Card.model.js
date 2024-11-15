@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const cardSchema = new Schema({
   suit: {
     type: String,
-    enum: ['Cœur', 'Carreau', 'Trèfle', 'Pique'],
+    enum: ['Coeur', 'Carreau', 'Trèfle', 'Pique'],
     required: true,
   },
   rank: {
