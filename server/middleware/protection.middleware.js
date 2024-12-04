@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const protectionMiddleware = (req, res, next) => {
-  const token = req.header('Authorization')?.split(' ')[1]; // Bearer <token>
+  const token = req.header('Authorization')?.split(' ')[1];
 
   if (!token) {
     return res
@@ -13,7 +13,7 @@ const protectionMiddleware = (req, res, next) => {
     // Vérifier et décoder le token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; // Ajouter les données de l'utilisateur décodées à l'objet req
-    next(); // Passer au middleware ou à la route suivante
+    next();
   } catch (err) {
     res.status(400).json({ message: 'Invalid token.' });
   }
