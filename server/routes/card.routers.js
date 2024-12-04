@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Card = require('../models/Card');
-const { handleNotFound } = require('../../utils');
+const Card = require('../models/Card.model');
+const { handleNotFound } = require('../utils');
 
 router.get('/', async (_, res, next) => {
   try {

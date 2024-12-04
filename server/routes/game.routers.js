@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Game = require('../models/Game');
-const { handleNotFound } = require('../../utils');
-const protectionMiddleware = require('../middlewares/protection.middleware');
+const Game = require('../models/Game.model');
+const { handleNotFound } = require('../utils');
+const protectionMiddleware = require('../middleware/protection.middleware');
 
 // Protéger les routes suivantes avec le middleware (si nécessaire)
-router.use(protectionMiddleware);
+// router.use(protectionMiddleware);
 
 router.get('/', async (_, res, next) => {
   try {

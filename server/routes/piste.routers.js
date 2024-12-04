@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Piste = require('../models/Piste');
-const { handleNotFound } = require('../../utils');
+const Piste = require('../models/Piste.model');
+const { handleNotFound } = require('../utils');
 
 router.get('/', async (_, res, next) => {
   try {

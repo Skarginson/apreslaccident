@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true }); // mergeParams pour accéder à gameId
-const GameLog = require('../models/GameLog');
-const { handleNotFound } = require('../../utils');
+const GameLog = require('../models/Gamelog.model');
 
 router.get('/', async (req, res, next) => {
   const { gameId } = req.params;
