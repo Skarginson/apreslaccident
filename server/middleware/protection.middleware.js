@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const protectionMiddleware = (req, res, next) => {
-  // Récupérer le token depuis les en-têtes de la requête
   const token = req.header('Authorization')?.split(' ')[1]; // Bearer <token>
 
   if (!token) {
