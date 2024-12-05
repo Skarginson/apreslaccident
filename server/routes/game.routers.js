@@ -68,6 +68,43 @@ router.post('/launch-game', async (req, res, next) => {
   }
 });
 
+// Endpoint to setup the game frame
+router.post('/:gameId/setup-frame', async (req, res, next) => {
+  const { gameId } = req.params;
+  const { keyElements } = req.body;
+
+  try {
+    // Validate required key elements
+    if (
+      !keyElements ||
+      !keyElements.accident ||
+      !keyElements.isolatedPlace ||
+      !keyElements.loneSurvivor ||
+      !keyElements.possibleRescue
+    ) {
+      return res.status(400).json({ message: 'All key elements are required' });
+    }
+
+    // Retrieve the game
+    const game = await Game.findById(gameId);
+    if (!game) {
+      return res.status(404).json({ message: 'Game not found' });
+    }
+
+    // Update the setup frame with key elements
+    game.setupFrame = { keyElements };
+
+    await game.save();
+
+    res.status(200).json({
+      message: 'Game frame setup successfully',
+      setupFrame: game.setupFrame,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Protect the following routes with middleware
 // router.use(protectionMiddleware);
 
