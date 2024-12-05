@@ -1,16 +1,11 @@
 const { Schema, model } = require('mongoose');
 
 const gameSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
-  deck: {
-    type: Schema.Types.ObjectId,
-    ref: 'Deck',
-    required: true,
-  },
+  // user: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true,
+  // },
   status: {
     type: String,
     enum: ['IN_PROGRESS', 'COMPLETED'],

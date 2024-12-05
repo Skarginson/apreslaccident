@@ -9,22 +9,14 @@ const protectionMiddleware = require('../middleware/protection.middleware');
 // Managing the ongoing game
 
 // Endpoint to initialize a new game
-router.post('/:gameId/initialize', async (req, res, next) => {
-  const { gameId } = req.params;
+router.post('/launch-game', async (req, res, next) => {
+  const { userId, name } = req.body;
 
   try {
-    // Retrieve the game
-    const game = await Game.findById(gameId);
-    if (!game) {
-      return res.status(404).json({ message: 'Game not found' });
-    }
+    // Create a new game
+    const newGame = await Game.create({ userId, name });
 
-    // Check if the game is already initialized
-    if (game.isInitialized) {
-      return res.status(400).json({ message: 'Game is already initialized' });
-    }
-
-    // Prepare card decks for each act
+    // Prep the deck
     const cards = await Card.find({
       $or: [
         { type: 'coeur' },
@@ -35,48 +27,42 @@ router.post('/:gameId/initialize', async (req, res, next) => {
       ],
     });
 
-    const coeurCards = cards.filter((card) => card.type === 'coeur');
-    const carreauCards = cards.filter((card) => card.type === 'carreau');
-    const trefleCards = cards.filter((card) => card.type === 'trefle');
-    const piqueCards = cards.filter(
-      (card) => card.type === 'pique' && card.value >= 2 && card.value <= 10
+    const coeurCards = shuffleArray(
+      cards.filter((c) => c.type === 'coeur')
+    ).slice(0, 6);
+    const carreauCards = shuffleArray(
+      cards.filter((c) => c.type === 'carreau')
+    ).slice(0, 7);
+    const trefleCards = shuffleArray(
+      cards.filter((c) => c.type === 'trefle')
+    ).slice(0, 6);
+    const piqueCards = shuffleArray(
+      cards.filter((c) => c.type === 'pique' && c.value >= 2 && c.value <= 10)
     );
-    const piqueFigures = cards.filter(
-      (card) => card.type === 'pique' && [1, 11, 12, 13].includes(card.value)
+    const piqueFigures = shuffleArray(
+      cards.filter(
+        (c) => c.type === 'pique' && [1, 11, 12, 13].includes(c.value)
+      )
     );
 
-    // Shuffle the cards and create the decks
-    const shuffledCoeur = shuffleArray(coeurCards).slice(0, 6);
-    const shuffledCarreau = shuffleArray(carreauCards).slice(0, 7);
-    const shuffledTrefle = shuffleArray(trefleCards).slice(0, 6);
-    const shuffledPiqueFigures = shuffleArray(piqueFigures);
-
-    // Create the History deck
-    const historyDeck = [
-      ...shuffledCoeur,
-      ...shuffledCarreau,
-      ...shuffledTrefle,
-      ...shuffledPiqueFigures,
-    ];
-
-    // Shuffle the History deck
-    const shuffledHistoryDeck = shuffleArray(historyDeck);
-
-    // Update the game with the decks
-    game.deck = {
-      coeur: shuffledCoeur,
-      carreau: shuffledCarreau,
-      trefle: shuffledTrefle,
-      history: shuffledHistoryDeck,
+    newGame.deck = {
+      coeur: coeurCards,
+      carreau: carreauCards,
+      trefle: trefleCards,
+      history: [
+        ...coeurCards,
+        ...carreauCards,
+        ...trefleCards,
+        ...piqueFigures,
+      ],
       pistes: piqueCards,
-      figures: shuffledPiqueFigures,
+      figures: piqueFigures,
     };
-    game.isInitialized = true;
-    await game.save();
+    newGame.isInitialized = true;
 
-    res
-      .status(200)
-      .json({ message: 'Game initialized successfully', deck: game.deck });
+    await newGame.save();
+
+    res.status(201).json({ message: 'Game initialized successfully', newGame });
   } catch (err) {
     next(err);
   }
@@ -104,23 +90,6 @@ router.get('/:id', async (req, res, next) => {
       return;
     }
     res.json(game);
-  } catch (err) {
-    next(err);
-  }
-});
-
-// Create a new game
-router.post('/', async (req, res, next) => {
-  const { userId } = req.body;
-
-  // Validate userId
-  if (!userId || typeof userId !== 'string') {
-    return res.status(400).json({ message: 'Invalid or missing userId' });
-  }
-
-  try {
-    const newGame = await Game.create({ userId });
-    res.status(201).json(newGame);
   } catch (err) {
     next(err);
   }
