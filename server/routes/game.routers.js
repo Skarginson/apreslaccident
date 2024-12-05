@@ -3,100 +3,87 @@ const router = express.Router();
 const Game = require('../models/Game.model');
 const Card = require('../models/Card.model');
 const GameLog = require('../models/Gamelog.model');
-const { handleNotFound } = require('../utils');
+const { handleNotFound, shuffleArray } = require('../utils');
 const protectionMiddleware = require('../middleware/protection.middleware');
 
-// Protéger les routes suivantes avec le middleware
-// router.use(protectionMiddleware);
+// Managing the ongoing game
 
-// Tirage de carte
-router.post('/:gameId/draw', async (req, res, next) => {
+// Endpoint to initialize a new game
+router.post('/:gameId/initialize', async (req, res, next) => {
   const { gameId } = req.params;
 
   try {
+    // Retrieve the game
     const game = await Game.findById(gameId);
     if (!game) {
       return res.status(404).json({ message: 'Game not found' });
     }
 
-    const currentAct = game.currentAct;
-    const actDeck = game.deck[currentAct];
-
-    if (actDeck.length === 0) {
-      return res
-        .status(400)
-        .json({ message: 'No more cards in the deck for this act' });
+    // Check if the game is already initialized
+    if (game.isInitialized) {
+      return res.status(400).json({ message: 'Game is already initialized' });
     }
 
-    // Tirer la première carte du deck
-    const drawnCard = actDeck.shift();
-    game.lastPlayedCard = drawnCard;
+    // Prepare card decks for each act
+    const cards = await Card.find({
+      $or: [
+        { type: 'coeur' },
+        { type: 'carreau' },
+        { type: 'trefle' },
+        { type: 'pique', value: { $gte: 2, $lte: 10 } },
+        { type: 'pique', value: { $in: [1, 11, 12, 13] } },
+      ],
+    });
+
+    const coeurCards = cards.filter((card) => card.type === 'coeur');
+    const carreauCards = cards.filter((card) => card.type === 'carreau');
+    const trefleCards = cards.filter((card) => card.type === 'trefle');
+    const piqueCards = cards.filter(
+      (card) => card.type === 'pique' && card.value >= 2 && card.value <= 10
+    );
+    const piqueFigures = cards.filter(
+      (card) => card.type === 'pique' && [1, 11, 12, 13].includes(card.value)
+    );
+
+    // Shuffle the cards and create the decks
+    const shuffledCoeur = shuffleArray(coeurCards).slice(0, 6);
+    const shuffledCarreau = shuffleArray(carreauCards).slice(0, 7);
+    const shuffledTrefle = shuffleArray(trefleCards).slice(0, 6);
+    const shuffledPiqueFigures = shuffleArray(piqueFigures);
+
+    // Create the History deck
+    const historyDeck = [
+      ...shuffledCoeur,
+      ...shuffledCarreau,
+      ...shuffledTrefle,
+      ...shuffledPiqueFigures,
+    ];
+
+    // Shuffle the History deck
+    const shuffledHistoryDeck = shuffleArray(historyDeck);
+
+    // Update the game with the decks
+    game.deck = {
+      coeur: shuffledCoeur,
+      carreau: shuffledCarreau,
+      trefle: shuffledTrefle,
+      history: shuffledHistoryDeck,
+      pistes: piqueCards,
+      figures: shuffledPiqueFigures,
+    };
+    game.isInitialized = true;
     await game.save();
 
-    // Ajouter un log pour le tirage
-    const log = await GameLog.create({
-      game: gameId,
-      actionType: 'draw',
-      cardDrawn: drawnCard,
-    });
-
-    res.status(200).json({ card: drawnCard, log });
+    res
+      .status(200)
+      .json({ message: 'Game initialized successfully', deck: game.deck });
   } catch (err) {
     next(err);
   }
 });
 
-// Suivre une piste
-router.post('/:gameId/follow', async (req, res, next) => {
-  const { gameId } = req.params;
-  const { pisteId } = req.body;
-
-  try {
-    // Vérifier si la partie existe
-    const game = await Game.findById(gameId);
-    if (!game) {
-      return res.status(404).json({ message: 'Game not found' });
-    }
-
-    // Ajouter la piste suivie aux logs
-    const log = await GameLog.create({
-      game: gameId,
-      actionType: 'follow',
-      pisteFollowed: pisteId,
-    });
-
-    res.status(200).json({ message: 'Piste suivie enregistrée', log });
-  } catch (err) {
-    next(err);
-  }
-});
-
-// Progression dans les actes
-router.patch('/:gameId/progress', async (req, res, next) => {
-  const { gameId } = req.params;
-
-  try {
-    const game = await Game.findById(gameId);
-    if (!game) {
-      return res.status(404).json({ message: 'Game not found' });
-    }
-
-    // Passer à l'acte suivant
-    if (game.currentAct < 3) {
-      game.currentAct += 1;
-      await game.save();
-      res
-        .status(200)
-        .json({ message: 'Act progressed', currentAct: game.currentAct });
-    } else {
-      res.status(400).json({ message: 'Already at the final act' });
-    }
-  } catch (err) {
-    next(err);
-  }
-});
-
-module.exports = router;
+// Protect the following routes with middleware
+// router.use(protectionMiddleware);
 
 router.get('/', async (_, res, next) => {
   try {
@@ -122,9 +109,14 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-// Créer une nouvelle partie
+// Create a new game
 router.post('/', async (req, res, next) => {
   const { userId } = req.body;
+
+  // Validate userId
+  if (!userId || typeof userId !== 'string') {
+    return res.status(400).json({ message: 'Invalid or missing userId' });
+  }
 
   try {
     const newGame = await Game.create({ userId });
@@ -158,7 +150,11 @@ router.delete('/:id', async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    await Game.findByIdAndDelete(id);
+    const game = await Game.findByIdAndDelete(id);
+    if (!game) {
+      handleNotFound(res);
+      return;
+    }
     res.json({ message: 'Game deleted successfully' });
   } catch (err) {
     next(err);
