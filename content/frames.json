@@ -1,0 +1,329 @@
+{
+  "note": "Les 13 cadres correspondent aux 13 rangs d'une enseigne (2 à 10, Valet, Dame, Roi, As). Pour un tirage aléatoire, on tire un rang. Chaque cadre est structuré en sections : chaque section contient un paragraphe narratif et une liste (éventuellement vide) de questions de personnalisation posées au joueur.",
+  "frames": [
+    {
+      "id": "ile-deserte",
+      "rank": "2",
+      "title": "L'Île Déserte",
+      "sections": [
+        {
+          "text": "Je suis une brillante femme d'affaires. Pour changer d'air, j'ai décidé de prendre plusieurs semaines de congés pour m'adonner à ma passion : la voile. Je me suis lancée dans la traversée en solitaire du Pacifique.",
+          "questions": [
+            "Quelle est ma destination ?",
+            "Pourquoi est-ce si important de réaliser cette traversée en solitaire ?"
+          ]
+        },
+        {
+          "text": "Dans mon envie de vivre ce moment pleinement, je communique peu avec mes proches restés à terre. Je ne suis pas dans une quête de performance, et je prends le temps de parcourir cette mer immense, de la découvrir et de me ressourcer. Mon bateau et mon équipement datent un peu, et ne sont plus vraiment aux standards actuels.",
+          "questions": [
+            "Comment s'appelle mon bateau ? Que signifie ce nom pour moi ? Qui l'a choisi ? À quoi ressemble-t-il ?"
+          ]
+        },
+        {
+          "text": "Cette nuit, j'ai été surprise par une tempête. Elle a entraîné mon bateau sur des rochers. J'ai trouvé refuge sur cette île au milieu de nulle part. Je ne sais pas si mes instruments ont transmis des informations à qui que ce soit, avant que les flots ne les submergent. Je suis coincée ici jusqu'à ce qu'on vienne me sauver.",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "aeropostale",
+      "rank": "3",
+      "title": "Aéropostale",
+      "sections": [
+        {
+          "text": "Je suis une aviatrice de l'Aéropostale. Nous sommes en avril 1929, et j'achemine du courrier et des médicaments à bord de mon Potez 25, depuis l'Argentine à destination du Chili. Je dois franchir la périlleuse Cordillère des Andes.",
+          "questions": [
+            "Qui m'a donné le goût de l'aviation ?",
+            "Qu'est-ce qui me pousse à réaliser des vols aussi dangereux ?"
+          ]
+        },
+        {
+          "text": "Chacun de ces trajets peut fatalement être le dernier. Je le sais. Certains de mes amis sont restés là-haut avec pour seule sépulture la carcasse de leur appareil.",
+          "questions": [
+            "Comment ai-je réagi à la dernière de ces disparitions tragiques ?",
+            "Qui essaie de me dissuader de m'envoler aujourd'hui ? Pourquoi est-ce que je décolle malgré tout ?"
+          ]
+        },
+        {
+          "text": "En vol, quelque chose se passe mal. Des vents capricieux se lèvent et mon avion ne se comporte pas comme à son habitude. Je dois atterrir en urgence dans un champ de pierres à plus de 4 000 mètres d'altitude. Mon appareil ne l'a pas supporté et il restera ici à jamais. Mais moi, je compte bien m'en sortir.",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "2600-pieds-sous-terre",
+      "rank": "4",
+      "title": "2 600 pieds sous terre",
+      "sections": [
+        {
+          "text": "Je fais partie d'une équipe de spéléologues qui a découvert un réseau de grottes inexplorées. Après avoir établi un camp de base à l'entrée, nous explorons et cartographions depuis plusieurs jours.",
+          "questions": [
+            "Qu'est-ce qui me pousse à explorer sous terre ?",
+            "Où se situent ces grottes, et comment les avons-nous découvertes ?",
+            "Qui finance cette expédition ?"
+          ]
+        },
+        {
+          "text": "Lors d'une sortie en petit groupe afin de cartographier une nouvelle zone, je me suis éloignée des autres, et me suis engagée dans un boyau non sécurisé.",
+          "questions": [
+            "Quel est le surnom qu'on m'a donné dans le groupe ? Comment l'ai-je pris ?",
+            "Pourquoi me suis-je éloignée, au mépris des règles de sécurité ?"
+          ]
+        },
+        {
+          "text": "J'ai glissé. Bêtement. Et j'ai dégringolé de plusieurs mètres, perdant le contact avec le groupe. Un éboulement me bloque le chemin du retour, si c'est bien de là que je viens. Tout est confus. J'ai encore une partie de mon équipement, et ces grottes sont toutes connectées entre elles. Je peux attendre ici en espérant des secours, ou plonger dans les entrailles de la Terre en espérant trouver à terme un moyen de rejoindre la surface.",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "etrange-bourgade",
+      "rank": "5",
+      "title": "Une bien étrange bourgade",
+      "sections": [
+        {
+          "text": "Je suis une citadine, née, élevée, éduquée et installée dans une grande ville. Depuis quelques jours, un nom revient constamment à moi, dans mes lectures, dans mes rêveries, dans des bribes de discussions captées lors de mes déplacements. Ce nom me dit vaguement quelque chose. C'est celui d'une bourgade isolée. Il m'est familier, j'en suis sûre, mais je n'arrive pas à me rappeler pourquoi. J'ai donc pris la route pour m'y rendre et en avoir le cœur net.",
+          "questions": [
+            "Dans quelle grande ville est-ce que je vis ? Qu'est-ce que j'y fais ?",
+            "Comment se nomme cette bourgade qui m'obsède ? À qui en ai-je parlé ?"
+          ]
+        },
+        {
+          "text": "Après plusieurs heures de trajet, je suis accueillie par le panneau qui figure à l'entrée de la petite localité. Il est vieux et couvert de mousse verdâtre. Il ne m'a pas été très difficile d'atteindre ma destination malgré l'isolement du lieu.",
+          "questions": [
+            "Qu'est-ce que je m'attends à trouver ici ? Qu'est-ce qui me retient de faire demi-tour au dernier moment ?"
+          ]
+        },
+        {
+          "text": "Un chien (était-ce bien un chien ?) a traversé brusquement devant moi. J'ai donné un coup de volant et ma voiture a quitté la route pour le fossé. Impossible de la sortir de là. Il n'y a personne dans la maison la plus proche. Pareil pour la suivante. Puis la suivante… Plus personne ne semble vivre ici… Où suis-je ?",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "promenons-nous",
+      "rank": "6",
+      "title": "Promenons-nous…",
+      "sections": [
+        {
+          "text": "Avec un groupe d'amis, nous avons organisé une grande randonnée de plusieurs jours à travers une vaste forêt, en totale autonomie. Cela fait plusieurs mois que nous préparons ce voyage, et nous voilà désormais à son point de départ.",
+          "questions": [
+            "Quelle région allons-nous traverser ? Quels sont les dangers naturels qu'on peut y trouver ?",
+            "Quelle est mon expérience de ce genre de périple ? Quelle est ma place dans le groupe ?"
+          ]
+        },
+        {
+          "text": "Au matin du troisième jour, nous avons été surpris par des pluies torrentielles. La fatigue, la faible visibilité et le terrain glissant m'ont éloignée du groupe. J'ai paniqué.",
+          "questions": [
+            "Quelle histoire d'épouvante a été évoquée autour du feu de camp hier soir ? Pourquoi me revient-elle maintenant en mémoire ?"
+          ]
+        },
+        {
+          "text": "En essayant de rattraper mon retard, j'ai glissé sur plusieurs mètres, et la pluie et la boue masquent le chemin principal que je suis censée suivre. Je suis perdue, frigorifiée et sans moyen de communication. La pluie battante couvre mes cris. Mes amis doivent être à ma recherche. Enfin je l'espère.",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "derriere-lignes-ennemies",
+      "rank": "7",
+      "title": "Derrière les lignes ennemies",
+      "sections": [
+        {
+          "text": "Je suis une pilote de chasse. Mon pays est en guerre, et je participe à une mission au-dessus du territoire adverse.",
+          "questions": [
+            "Quelle est cette guerre ? Depuis combien de temps dure-t-elle ? Dans quel camp suis-je ?",
+            "Pourquoi est-ce que j'ai choisi cette carrière ?"
+          ]
+        },
+        {
+          "text": "Mon avion a été pris pour cible, touché, et j'ai dû m'en extraire. J'ai pu éviter les zones de population, mais me voici seule derrière les lignes ennemies, en pleine nature sauvage. Ma position n'a pas pu leur échapper et ils doivent déjà s'affairer à me traquer. Je suis une prise de choix pour eux.",
+          "questions": [
+            "Que raconte-t-on qu'il arrive aux prisonnières de guerre ? Est-ce juste de la propagande, ou bien est-ce que j'y crois ?"
+          ]
+        },
+        {
+          "text": "En tant que soldats, nous sommes formés à l'éventualité de nous retrouver dans ce genre de situations. Nous avons un protocole à suivre, qui peut nous permettre d'être rapatriés. Est-ce que suivre les procédures est la meilleure chose à faire, ou bien la situation me demande-t-elle d'agir autrement ?",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "en-orbite",
+      "rank": "8",
+      "title": "En orbite",
+      "sections": [
+        {
+          "text": "Je suis une astronaute actuellement en orbite autour de la Terre. J'ai pris place dans la Nouvelle Station Spatiale Internationale il y a plusieurs semaines, avec d'autres astronautes venus de pays différents. Notre quotidien est réglé par un planning strict établi par notre équipe au sol.",
+          "questions": [
+            "Quelle est mon expérience des voyages dans l'espace ? Suis-je la vétérane de l'équipe, ou la débutante ?",
+            "Quelle est ma spécialité à bord ?"
+          ]
+        },
+        {
+          "text": "Aujourd'hui, une partie de l'équipe effectue une opération de routine sur la coque extérieure, et je suis seule dans le module central de la station. Quand soudain, une collision a lieu avec un objet en orbite. Les voyants d'alerte s'affolent immédiatement.",
+          "questions": [
+            "Quels critères me permettent de juger que cet incident est critique dès le début ?"
+          ]
+        },
+        {
+          "text": "Je suis en sécurité pour l'instant dans le module central, son intégrité n'est pas atteinte. Mais je n'arrive plus à communiquer avec mes compagnons de vol, que ce soit visuellement ou par radio. Les liaisons avec la Terre sont également hors service. Je tente de garder mon calme parce que dans l'espace, personne ne m'entendrai hurler…",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "riviere-eternelle",
+      "rank": "9",
+      "title": "La rivière éternelle",
+      "sections": [
+        {
+          "text": "Je suis maudite. Du moins, j'ai été maudite. Je l'ai peut-être cherché…",
+          "questions": [
+            "Qu'ai-je fait pour qu'une Entité me jette une malédiction ?"
+          ]
+        },
+        {
+          "text": "J'ai arrêté de compter il y a plusieurs jours, mais je me réveille tous les matins près de cette mare, dans les collines. Là-bas, dans la vallée, je reconnais les toits de la ville d'où je viens.",
+          "questions": [
+            "À quoi ressemble cette ville ?",
+            "Qui étais-je dans cette ville ?"
+          ]
+        },
+        {
+          "text": "Un ruisseau s'écoule de la mare, et rejoint rapidement une rivière, qui descend les collines vers la vallée. Mais la ville est loin. Je m'endors toujours avant de l'atteindre. Et quand je me réveille, j'ai toujours la joue gauche dans la boue, le bras dans la mare, et une grenouille qui me fixe, avant de disparaître dès que je bouge.",
+          "questions": []
+        },
+        {
+          "text": "Qui m'a maudite pour que je revienne toujours ici ? Est-ce la même journée qui tourne en boucle, ou bien verrai-je les saisons défiler ici ?",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "salle-de-reveil",
+      "rank": "10",
+      "title": "Salle de Réveil",
+      "sections": [
+        {
+          "text": "Je me réveille sur un lit d'hôpital. Je suis en blouse de soins, une intraveineuse au bras et un capteur sur l'index. Aucun des appareils ne fonctionne. L'électricité semble en panne. Seule dans la chambre et un peu groggy, je n'entends absolument rien autour de moi.",
+          "questions": [
+            "Qu'est-ce que je remarque sur la commode de la chambre et qui semble m'appartenir ou du moins m'être destiné ?"
+          ]
+        },
+        {
+          "text": "Je me lève difficilement et me dirige vers la fenêtre. Elle a des barreaux. Dehors, personne.",
+          "questions": [
+            "Qu'est-ce que je vois dehors qui m'inquiète, et qui n'est pas une vue normale depuis une chambre d'hôpital ?"
+          ]
+        },
+        {
+          "text": "Je perçois une lumière clignotante qui illumine le couloir par à-coups, comme un signal d'alerte. Quand je sors de ma chambre, je découvre un chaos indescriptible : des brancards, des dossiers éparpillés, des vitres brisées. Mais toujours personne en vue. La porte qui mène vers le rez-de-chaussée est verrouillée. J'ai l'impression qu'on a évacué cet endroit à la hâte.",
+          "questions": [
+            "Qu'est-ce qui me donne l'impression d'être observée en permanence ?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "champ-des-morts",
+      "rank": "jack",
+      "title": "Le champ des morts",
+      "sections": [
+        {
+          "text": "Je suis une guerrière, une soldate. J'ai participé à une bataille rangée. Je ne sais pas quel camp a gagné. J'ai été mise à terre, comme nombre de mes compagnons et adversaires.",
+          "questions": [
+            "Quel était l'objectif de cette bataille ? Qui étaient les protagonistes ?",
+            "Pourquoi ai-je pris part à cette bataille ? Était-ce par choix ou par contrainte ?"
+          ]
+        },
+        {
+          "text": "Je me suis réveillée au milieu d'une brume matinale. Un corbeau s'était posé sur moi. Sur mon visage.",
+          "questions": [
+            "Qu'est-ce qu'on associe aux corbeaux dans ma culture ? Sont-ils vénérés ou craints ?"
+          ]
+        },
+        {
+          "text": "Autour de moi, là où la brume s'écarte, je ne vois que de la boue et des cadavres. La plaine est recouverte de centaines de corps. Peu importe le camp auquel ils appartenaient, ils sont tous mêlés dans leur trépas. À première vue, en dehors des charognards, je crois être la seule survivante.",
+          "questions": []
+        }
+      ]
+    },
+    {
+      "id": "clouee-au-sol",
+      "rank": "queen",
+      "title": "Clouée au sol",
+      "sections": [
+        {
+          "text": "Je suis une pie. Une simple pie, belle, magnifique et curieuse. J'explore un nouvel environnement, malgré les avertissements de mes sœurs.",
+          "questions": [
+            "Dans quel environnement est-ce que je passe le plus clair de mon temps ?",
+            "Quelles autres créatures partagent cet espace avec nous ? Quelle est leur attitude à notre égard ?"
+          ]
+        },
+        {
+          "text": "Aujourd'hui, je n'ai pas fait assez attention. J'ai été surprise et je me suis blessée.",
+          "questions": [
+            "Que s'est-il passé ?"
+          ]
+        },
+        {
+          "text": "Je suis maintenant clouée au sol et n'arrive pas à voler. Quelque chose qui m'était inné m'est maintenant impossible. Je dois survivre le temps de reprendre des forces.",
+          "questions": [
+            "Pourquoi mes sœurs ne viennent-elles pas là où je suis tombée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de-l-autre-cote-du-miroir",
+      "rank": "king",
+      "title": "De l'autre côté du miroir",
+      "sections": [
+        {
+          "text": "Je suis une jeune fille de bonne famille. C'est ainsi que ceux qui m'ont élevée aiment me qualifier. Parce que je n'ai pas respecté certaines des normes qu'ils veulent m'imposer, j'ai été envoyée pour l'été chez une vieille tante que je connais mal.",
+          "questions": [
+            "Quel acte ai-je commis qui a fortement déplu à ma famille ?",
+            "Qu'est-ce qui me met mal à l'aise depuis que je suis arrivée ici ?"
+          ]
+        },
+        {
+          "text": "Ma tante est partie faire des emplettes au village, et je suis seule dans sa demeure, que j'ai choisi d'explorer. Dans les combles, j'ai cru voir un lapin blanc dans le reflet d'un miroir. J'ai tendu le bras pour le toucher, et je suis tombée à travers le miroir.",
+          "questions": [
+            "Qu'ai-je ressenti lors de cette chute fantasque ?"
+          ]
+        },
+        {
+          "text": "Je n'arrive pas à faire la bascule pour revenir de l'autre côté. Tout est pareil en étant différent ici. Chaque miroir est une fenêtre vers le monde d'où je viens, mais je n'arrive à en ouvrir aucune. Quel est ce cauchemar ?",
+          "questions": [
+            "Quelle est la principale différence dans ce monde-ci ?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erreur-404",
+      "rank": "ace",
+      "title": "Erreur 404",
+      "sections": [
+        {
+          "text": "Je suis une netrunner. J'explore les réseaux, connectée à diverses interfaces neuronales. Dans notre monde, on ne se connecte plus via un écran, mais en se branchant directement au système, en y immergeant notre esprit.",
+          "questions": [
+            "À quoi ressemble une plongée dans le réseau ? Qu'est-ce qu'on ressent, voit, sent ?",
+            "Dans quel but est-ce que je réalise ces plongées ?"
+          ]
+        },
+        {
+          "text": "J'ai fait une mauvaise rencontre lors de ma dernière exploration : un autre runner, un algorithme de défense, une Rogue-AI, une devIAnte… Résultat, je suis coincée dans le réseau, et mes protocoles de sortie ne fonctionnent plus.",
+          "questions": [
+            "Quelle erreur ai-je faite lors de cette rencontre ?"
+          ]
+        },
+        {
+          "text": "J'ai toujours entendu cette légende des ghosts, de ceux qui n'ont pas réussi à sortir et hantent l'espace tandis que leurs enveloppes charnelles s'étiolent puis s'éteignent. Je ne veux pas devenir l'un de ces fantômes.",
+          "questions": []
+        }
+      ]
+    }
+  ]
+}

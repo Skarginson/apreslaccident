@@ -1,0 +1,49 @@
+{
+  "suit": "heart",
+  "act": 1,
+  "title": "Les premiers jours",
+  "cards": {
+    "ace": {
+      "text": "Vous êtes revenue sur les traces de l'accident. Vous cherchiez quelque chose, mais ne l'avez pas trouvé. Qu'était-ce ? Comment avez-vous réagi ?"
+    },
+    "king": {
+      "text": "Il y a longtemps, quelqu'un vous a donné un conseil. Pourquoi résonne-t-il différemment à vos oreilles aujourd'hui ?"
+    },
+    "queen": {
+      "text": "Quelle occupation avez-vous trouvée pour tuer le temps et ne pas tourner en rond ?"
+    },
+    "jack": {
+      "text": "Qu'est-ce qui vous rappelle ce que vous faisiez quelques instants avant l'accident ?"
+    },
+    "10": {
+      "text": "Qu'est-ce qui a remonté votre moral aujourd'hui ?",
+      "pistes": ["Signal", "Jouet", "Animal"]
+    },
+    "9": {
+      "text": "Vous vous réveillez chaque jour en pensant à quelqu'un. À qui ?",
+      "pistes": ["Vengeance", "Amour", "Famille"]
+    },
+    "8": {
+      "text": "Quelque chose vous a réveillée la nuit dernière. De quoi s'agit-il ?",
+      "pistes": ["Mélodie", "Lueurs", "Cauchemars"]
+    },
+    "7": {
+      "text": "Quel vieux souvenir vous est revenu ? Qu'est-ce qui a provoqué ce rappel ?"
+    },
+    "6": {
+      "text": "De quel événement surprenant avez-vous été témoin aujourd'hui ?"
+    },
+    "5": {
+      "text": "Quel rituel quotidien avez-vous mis en place ?"
+    },
+    "4": {
+      "text": "Vous avez établi un campement de fortune. Pourquoi avoir choisi cet endroit ? À quoi ressemble-t-il ?"
+    },
+    "3": {
+      "text": "Comment votre blessure s'est-elle aggravée ?"
+    },
+    "2": {
+      "text": "Vous avez découvert une ressource qui vous est utile. Quelles sont les difficultés pour y accéder ou l'exploiter ?"
+    }
+  }
+}

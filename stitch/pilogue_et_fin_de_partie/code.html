@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Relic Ledger - Final Epilogue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f8f3e9",
+                        "primary-fixed-dim": "#ffb3af",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ede8de",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f5f0e6",
+                        "tertiary-fixed": "#aaf0e6",
+                        "surface-bright": "#fef9ef",
+                        "on-background": "#1d1c16",
+                        "background": "#fef9ef",
+                        "surface-container-highest": "#e7e2d8",
+                        "on-surface": "#1d1c16",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#211b14",
+                        "on-primary-fixed-variant": "#822526",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d1c4b9",
+                        "on-tertiary-container": "#86cbc1",
+                        "tertiary-fixed-dim": "#8ed3ca",
+                        "surface-variant": "#e7e2d8",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f2ede3",
+                        "on-secondary-container": "#6a6158",
+                        "on-primary-fixed": "#410005",
+                        "primary": "#6c1518",
+                        "primary-container": "#8b2c2c",
+                        "on-surface-variant": "#564240",
+                        "secondary": "#665d54",
+                        "on-secondary-fixed-variant": "#4d453d",
+                        "on-primary-container": "#ffa8a3",
+                        "inverse-surface": "#32302a",
+                        "outline-variant": "#ddc0be",
+                        "outline": "#897170",
+                        "surface": "#fef9ef",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#a23d3b",
+                        "secondary-container": "#eaddd2",
+                        "primary-fixed": "#ffdad7",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dedad0",
+                        "tertiary": "#003e39",
+                        "tertiary-container": "#005750",
+                        "inverse-primary": "#ffb3af",
+                        "secondary-fixed": "#ede0d5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Newsreader", "serif"],
+                        "label": ["Newsreader", "serif"],
+                        "journal": ["Caveat", "cursive"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-image: url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>');
+        }
+        .gradient-text-primary {
+            background: linear-gradient(135deg, #6c1518 0%, #8b2c2c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg-primary {
+            background: linear-gradient(135deg, #6c1518 0%, #8b2c2c 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px rgba(29, 28, 22, 0.06);
+        }
+        .hand-drawn-border {
+            border: 1px solid #897170;
+            border-radius: 2px 255px 3px 255px / 255px 5px 225px 3px;
+        }
+        .journal-input {
+            border: none;
+            border-bottom: 1px solid rgba(221, 192, 190, 0.5);
+            background: transparent;
+        }
+        .journal-input:focus {
+            outline: none;
+            border-bottom: 1px solid #6c1518;
+            background-color: rgba(248, 243, 233, 0.3);
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen antialiased flex flex-col md:flex-row">
+<!-- SideNavBar (Suppressed due to end of journey logic, but keeping structure for reference if needed, hidden here) -->
+<nav aria-label="Sidebar Navigation" class="hidden"></nav>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center min-h-screen relative p-6 md:p-12 w-full max-w-5xl mx-auto">
+<!-- Top Actions -->
+<div class="absolute top-8 right-8 flex gap-6">
+<button class="text-secondary hover:text-on-surface transition-colors duration-300 font-label tracking-widest uppercase text-xs border-b border-outline-variant/30 hover:border-outline-variant pb-1 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+                Exporter en Markdown
+            </button>
+<button class="text-secondary/50 cursor-not-allowed font-label tracking-widest uppercase text-xs pb-1 flex items-center gap-2" disabled="" title="Bientôt disponible">
+<span class="material-symbols-outlined" style="font-size: 16px;">picture_as_pdf</span>
+                Exporter en PDF (Bientôt)
+            </button>
+</div>
+<article class="w-full max-w-2xl flex flex-col items-center text-center space-y-16 mt-16 md:mt-0">
+<!-- Solemn Announcement -->
+<header class="space-y-4">
+<h1 class="font-headline text-5xl md:text-6xl text-on-surface tracking-tight" style="font-weight: 300;">L'histoire touche à sa fin.</h1>
+</header>
+<!-- Ace of Spades Art -->
+<div class="relative w-48 h-72 flex items-center justify-center">
+<!-- Hand-drawn style SVG representation of an Ace of Spades -->
+<svg class="text-on-surface" height="100%" viewbox="0 0 200 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+<rect class="hand-drawn-border opacity-30" fill="none" height="290" stroke="currentColor" stroke-width="2" width="190" x="5" y="5"></rect>
+<text fill="currentColor" font-family="Newsreader" font-size="24" x="20" y="40">A</text>
+<path d="M 25 45 C 30 40, 35 45, 30 55 C 25 60, 20 55, 25 45 Z" fill="currentColor" opacity="0.8"></path>
+<text fill="currentColor" font-family="Newsreader" font-size="24" transform="rotate(180 180 260)" x="180" y="260">A</text>
+<g transform="translate(100, 150) scale(2)">
+<path d="M 0 -30 C 20 -10, 30 10, 0 30 C -30 10, -20 -10, 0 -30 Z" fill="currentColor" opacity="0.9"></path>
+<path d="M -5 30 L 5 30 L 2 45 L -2 45 Z" fill="currentColor" opacity="0.9"></path>
+<path d="M 0 -30 C 5 -15, 10 -5, 0 5 C -10 -5, -5 -15, 0 -30 Z" fill="#fef9ef" opacity="0.5"></path>
+</g>
+</svg>
+</div>
+<!-- Epilogue Prompt & Input -->
+<div class="w-full space-y-8 bg-surface-container-low p-8 md:p-12 ambient-shadow">
+<label class="block font-headline text-2xl text-on-surface italic text-left" for="final-entry">
+                    Décrivez vos derniers instants avant que le silence ne devienne définitif.
+                </label>
+<textarea class="w-full journal-input font-journal text-2xl text-on-surface leading-relaxed resize-none p-2 placeholder-on-surface-variant/30" id="final-entry" placeholder="L'encre sèche sur la page..." rows="8"></textarea>
+</div>
+<!-- Final Action -->
+<div class="pt-12 pb-24">
+<button class="gradient-bg-primary text-on-primary font-headline text-xl px-12 py-4 tracking-wide hover:bg-primary-container transition-colors duration-300 flex items-center gap-3">
+                    Refermer le journal
+                    <span class="material-symbols-outlined">auto_stories</span>
+</button>
+</div>
+</article>
+</main>
+</body></html>

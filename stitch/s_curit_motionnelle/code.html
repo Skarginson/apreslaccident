@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sécurité émotionnelle - The Relic Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#ddc0be",
+                      "tertiary-fixed": "#aaf0e6",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#fef9ef",
+                      "primary-fixed-dim": "#ffb3af",
+                      "secondary-container": "#eaddd2",
+                      "on-error": "#ffffff",
+                      "primary": "#6c1518",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#003e39",
+                      "on-tertiary-container": "#86cbc1",
+                      "tertiary-fixed-dim": "#8ed3ca",
+                      "surface-container": "#f2ede3",
+                      "secondary-fixed-dim": "#d1c4b9",
+                      "inverse-on-surface": "#f5f0e6",
+                      "surface-container-high": "#ede8de",
+                      "on-primary-container": "#ffa8a3",
+                      "surface-tint": "#a23d3b",
+                      "on-primary-fixed-variant": "#822526",
+                      "surface-container-low": "#f8f3e9",
+                      "inverse-surface": "#32302a",
+                      "on-secondary-fixed-variant": "#4d453d",
+                      "primary-container": "#8b2c2c",
+                      "tertiary-container": "#005750",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#6a6158",
+                      "on-primary-fixed": "#410005",
+                      "surface-bright": "#fef9ef",
+                      "surface-variant": "#e7e2d8",
+                      "surface-container-highest": "#e7e2d8",
+                      "on-secondary-fixed": "#211b14",
+                      "on-surface": "#1d1c16",
+                      "on-tertiary-fixed-variant": "#00504a",
+                      "on-secondary": "#ffffff",
+                      "outline": "#897170",
+                      "inverse-primary": "#ffb3af",
+                      "secondary-fixed": "#ede0d5",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#00201d",
+                      "surface-dim": "#dedad0",
+                      "surface": "#fef9ef",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#ffdad7",
+                      "on-surface-variant": "#564240",
+                      "on-background": "#1d1c16",
+                      "secondary": "#665d54",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Newsreader", "serif"
+                      ],
+                      "body": [
+                              "Newsreader", "serif"
+                      ],
+                      "label": [
+                              "Newsreader", "serif"
+                      ],
+                      "journal": [
+                              "Caveat", "cursive"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            /* Paper grain texture via SVG data URI */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            font-family: theme('fontFamily.body');
+            min-height: 100vh;
+        }
+
+        .gradient-btn {
+            background: linear-gradient(to right, theme('colors.primary'), theme('colors.primary-container'));
+        }
+
+        .gradient-btn:hover {
+            background: theme('colors.primary-container');
+        }
+
+        /* Hide default checkbox */
+        input[type="checkbox"].custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1px solid theme('colors.outline');
+            border-radius: 0;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input[type="checkbox"].custom-checkbox:checked {
+            background-color: theme('colors.primary');
+            border-color: theme('colors.primary');
+        }
+
+        input[type="checkbox"].custom-checkbox:checked::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid theme('colors.on-primary');
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        input[type="checkbox"].custom-checkbox:focus-visible {
+             box-shadow: 0 0 0 2px theme('colors.surface'), 0 0 0 4px theme('colors.primary');
+        }
+      </style>
+</head>
+<body class="antialiased selection:bg-primary/20 selection:text-primary-container">
+<!-- Intent: Onboarding/Setup - Suppressing SideNav/BottomNav -->
+<main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+<!-- Header Section -->
+<header class="mb-20 space-y-6">
+<h1 class="font-headline text-4xl md:text-[3.5rem] leading-tight font-light tracking-tight text-on-surface">
+                Prendre soin de soi avant de commencer
+            </h1>
+<p class="font-body text-lg md:text-xl text-secondary max-w-2xl leading-relaxed">
+                Avant de plonger dans le vide, il est essentiel de définir les limites de votre exploration. Ce registre aborde des thèmes profonds. Sélectionnez les sentiers (Tracks) que vous souhaitez explorer, et écartez ceux qui pourraient troubler votre paix.
+            </p>
+</header>
+<!-- Tracks Section -->
+<section class="mb-24">
+<h2 class="font-headline text-2xl mb-12 text-on-surface font-medium border-b border-outline-variant/30 pb-4 inline-block">
+                Les Sentiers (Tracks)
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+<!-- Track 1 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_amour" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_amour">
+                            Amour
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Exploration des liens profonds, de l'affection et de la connexion spirituelle entre les âmes.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_amour">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 2 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_animal" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_animal">
+                            Animal
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Souvenirs liés aux compagnons non-humains, leur loyauté et leur présence réconfortante.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_animal">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 3 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_autel" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_autel">
+                            Autel
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Espaces sacrés, rituels personnels et objets chargés de signification mémorielle.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_autel">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 4 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input class="custom-checkbox" id="track_blessure" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_blessure">
+                            Blessure
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Traumatismes passés, douleurs physiques ou émotionnelles qui ont laissé une marque durable.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-outline cursor-pointer flex items-center gap-1" for="track_blessure">
+<span class="material-symbols-outlined text-[14px]">close</span> Retirer
+                        </label>
+</div>
+</div>
+<!-- Track 5 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_chaos" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_chaos">
+                            Chaos
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Périodes de confusion, de perte de contrôle et d'événements imprévisibles.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_chaos">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 6 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_corps" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_corps">
+                            Corps
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            L'expérience physique, la transformation corporelle et la relation à son propre vaisseau.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_corps">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 7 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input class="custom-checkbox" id="track_deuil" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_deuil">
+                            Deuil
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Perte d'êtres chers, processus de deuil et souvenirs liés à la fin de vie.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-outline cursor-pointer flex items-center gap-1" for="track_deuil">
+<span class="material-symbols-outlined text-[14px]">close</span> Retirer
+                        </label>
+</div>
+</div>
+<!-- Track 8 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_elementaire" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_elementaire">
+                            Élémentaire
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Connexion à la nature, aux forces brutes de la terre, de l'eau, de l'air et du feu.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_elementaire">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 9 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_enfance" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_enfance">
+                            Enfance
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Souvenirs de jeunesse, innocence, découvertes fondatrices et dynamiques familiales primitives.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_enfance">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Track 10 -->
+<div class="group flex items-start gap-6">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="track_esprit" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="track_esprit">
+                            Esprit
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Santé mentale, visions, rêves intenses et exploration des recoins de la conscience.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="track_esprit">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<p class="font-journal text-xl text-secondary opacity-70">... d'autres sentiers se dévoileront en temps voulu.</p>
+</div>
+</section>
+<!-- Initial Injuries Section -->
+<section class="mb-24">
+<h2 class="font-headline text-2xl mb-12 text-on-surface font-medium border-b border-outline-variant/30 pb-4 inline-block">
+                Séquelles Initiales
+            </h2>
+<p class="font-body text-secondary mb-12 max-w-2xl leading-relaxed">
+                Certains événements laissent des marques indélébiles avant même que le voyage ne commence. Souhaitez-vous que le registre tienne compte de ces cicatrices primordiales ?
+            </p>
+<div class="space-y-12">
+<!-- Injury 1 -->
+<div class="group flex items-start gap-6 bg-surface-container-low p-8 relative">
+<div class="mt-1">
+<input class="custom-checkbox" id="injury_abandon" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="injury_abandon">
+                            L'Écho de l'Abandon
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Une sensation persistante de vide laissée par un départ inexpliqué ou une séparation brutale dans les premières années.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-outline cursor-pointer flex items-center gap-1" for="injury_abandon">
+<span class="material-symbols-outlined text-[14px]">close</span> Retirer
+                        </label>
+</div>
+</div>
+<!-- Injury 2 -->
+<div class="group flex items-start gap-6 bg-surface-container-low p-8 relative">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="injury_trahison" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="injury_trahison">
+                            La Fracture de Confiance
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Une promesse sacrée brisée, rendant l'acte de foi envers autrui périlleux et souvent douloureux.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="injury_trahison">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+<!-- Injury 3 -->
+<div class="group flex items-start gap-6 bg-surface-container-low p-8 relative">
+<div class="mt-1">
+<input checked="" class="custom-checkbox" id="injury_silence" type="checkbox"/>
+</div>
+<div>
+<label class="font-headline text-xl font-medium cursor-pointer block mb-2 group-hover:text-primary transition-colors duration-300" for="injury_silence">
+                            Le Poids du Silence
+                        </label>
+<p class="text-secondary text-sm leading-relaxed mb-3">
+                            Des mots qui auraient dû être prononcés mais qui sont restés captifs, formant une lourdeur indicible dans la gorge.
+                        </p>
+<label class="font-label text-xs tracking-[0.05rem] uppercase text-secondary cursor-pointer flex items-center gap-1" for="injury_silence">
+<span class="material-symbols-outlined text-[14px]">check</span> Inclure
+                        </label>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / CTA -->
+<footer class="mt-32 pt-12 border-t border-outline-variant/20 flex justify-end">
+<button class="gradient-btn text-on-primary font-headline text-lg px-12 py-4 shadow-[0_20px_40px_rgba(29,28,22,0.06)] hover:shadow-[0_20px_40px_rgba(29,28,22,0.12)] transition-all duration-300 rounded-none flex items-center gap-3 group">
+                Continuer l'Écriture
+                <span class="material-symbols-outlined text-[20px] font-light group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "suit": "spade",
+  "cards": {
+    "ace": {
+      "role": "end",
+      "text": "L'histoire touche à sa fin."
+    },
+    "king": {
+      "role": "wound_or_epilogue",
+      "woundText": "Vous vous êtes blessée lors de l'accident. Paniquez-vous ? Qu'est-ce qui est encore pire que cette blessure ?",
+      "epilogueText": "Vous relisez votre journal. Quand l'aviez-vous écrit ? Qu'avez-vous fait et vécu depuis ? Pourquoi avez-vous décidé de le consulter à nouveau ?"
+    },
+    "queen": {
+      "role": "wound_or_epilogue",
+      "woundText": "Vous vous êtes légèrement blessée lors de l'accident. Malgré tout, qu'est-ce qui vous donne de l'espoir ? Sur quoi pouvez-vous compter ?",
+      "epilogueText": "Ce n'est pas votre journal. Pour cette entrée, vous n'êtes pas la Survivante, mais quelqu'un d'autre. Où avez-vous trouvé ce journal ? Qui est la Survivante et que représente-t-elle pour vous ? Comment le journal est-il arrivé à vous (ou vous à lui) ?"
+    },
+    "jack": {
+      "role": "wound_or_epilogue",
+      "woundText": "Vous vous êtes blessée lors de l'accident, mais vous serrez les dents. Qu'avez-vous perdu lors de l'accident ? Quel présage y voyez-vous ?",
+      "epilogueText": "Écrivez une dernière page dans votre journal. Ce sera votre dernière page, mais ça, vous ne le savez pas encore."
+    }
+  },
+  "note": "Les cartes 2 à 10 de pique ne sont pas listées ici : elles sont des emplacements pour les Pistes (voir pistes.json) et leur prompt dépend de la Piste qui leur est assignée en cours de partie."
+}

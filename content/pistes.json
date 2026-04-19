@@ -1,0 +1,76 @@
+{
+  "pistes": [
+    {
+      "word": "Amour",
+      "entryText": "Quelle routine partagée avec votre âme sœur vous manque terriblement ?"
+    },
+    {
+      "word": "Animal",
+      "entryText": "Quelle relation avez-vous développée avec l'animal que vous avez rencontré ?"
+    },
+    {
+      "word": "Autel",
+      "entryText": "Qu'avez-vous trouvé d'utile ou d'étrange sur l'autel ?"
+    },
+    {
+      "word": "Calme",
+      "entryText": "La tranquillité de ces derniers jours vous a rappelé un souvenir heureux. Décrivez-le."
+    },
+    {
+      "word": "Cauchemars",
+      "entryText": "Vous avez vu quelque chose issu de vos cauchemars. En quoi est-ce troublant de le voir ici ?"
+    },
+    {
+      "word": "Chaos",
+      "entryText": "Le chaos de ces derniers jours a libéré un passage. L'avez-vous exploré ? Qu'y a-t-il derrière ?"
+    },
+    {
+      "word": "Culte",
+      "entryText": "Vous êtes tombée sur un lieu sacré. Qu'y avez-vous découvert de fascinant ?"
+    },
+    {
+      "word": "Jouet",
+      "entryText": "Quel souvenir remonte à la surface tandis que vous manipulez le jouet que vous avez trouvé ?"
+    },
+    {
+      "word": "Effrayant",
+      "entryText": "Vous avez craint pour votre vie. Racontez comment vous vous êtes vue mourir."
+    },
+    {
+      "word": "Esprit",
+      "entryText": "L'esprit vous a recontactée. Vers quel endroit vous a-t-il guidée ?"
+    },
+    {
+      "word": "Famille",
+      "entryText": "Comment imaginez-vous que votre famille vivra votre disparition si vous ne revenez pas ?"
+    },
+    {
+      "word": "Impossible",
+      "entryText": "Qu'avez-vous découvert qui défie la réalité ? De quel événement commencez-vous à douter maintenant ?"
+    },
+    {
+      "word": "Lueurs",
+      "entryText": "Chaque nuit, les lueurs se rapprochent de vous. Qu'avez-vous découvert en allant vers elles ?"
+    },
+    {
+      "word": "Mélodie",
+      "entryText": "Vous avez trouvé la source de la mélodie. Quelle est-elle ?"
+    },
+    {
+      "word": "Message",
+      "entryText": "Vous avez découvert d'autres messages. Que vous racontent-ils sur cet endroit ?"
+    },
+    {
+      "word": "Mourant",
+      "entryText": "Aujourd'hui vous avez mis en terre quelqu'un de vos propres mains. En quoi était-ce plus facile que la première fois ?"
+    },
+    {
+      "word": "Signal",
+      "entryText": "Vous avez trouvé un moyen d'envoyer un signal vers l'extérieur. Décrivez comment."
+    },
+    {
+      "word": "Vengeance",
+      "entryText": "Quels éléments suggèrent que votre présence n'est peut-être pas due au hasard ?"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "suit": "club",
+  "act": 3,
+  "title": "Tout s'emballe",
+  "cards": {
+    "ace": {
+      "text": "Vous n'avez rien écrit dans votre journal hier. Pourquoi ?"
+    },
+    "king": {
+      "text": "Qu'avez-vous fait pour indiquer votre position aux secours ? Pourquoi devez-vous y consacrer du temps chaque jour ?"
+    },
+    "queen": {
+      "text": "Vous avez égaré un objet important à vos yeux. Comment avez-vous réagi ? L'avez-vous retrouvé ?"
+    },
+    "jack": {
+      "text": "Pourquoi quitter cet endroit devient-il une urgence ?"
+    },
+    "10": {
+      "text": "Qu'est-ce qui a subitement changé dans l'environnement ?",
+      "pistes": ["Calme", "Chaos", "Effrayant"]
+    },
+    "9": {
+      "text": "Pourquoi avez-vous dû quitter votre campement en toute hâte ?",
+      "pistes": ["Animal", "Mélodie", "Signal"]
+    },
+    "8": {
+      "text": "Qu'est-ce qui vous fait douter de la réalité dans ce que vous avez vécu ces derniers jours ?",
+      "pistes": ["Esprit", "Autel", "Impossible"]
+    },
+    "7": {
+      "text": "Aujourd'hui, vous pensez à quelqu'un. Écrivez-lui un message, au cas où on retrouverait votre journal."
+    },
+    "6": {
+      "text": "Il y a quelque chose qui semble vous retenir ici. Décrivez ce sentiment ou cette sensation."
+    },
+    "5": {
+      "text": "Une fois quitté cet endroit, quel changement radical ferez-vous dans votre vie ?"
+    },
+    "4": {
+      "text": "Qu'est-ce qui vous amène à penser que les secours ne sont plus très loin ?"
+    },
+    "3": {
+      "text": "Qu'est-ce qui vous manquera en partant d'ici ?"
+    },
+    "2": {
+      "text": "Quel est ce danger permanent qui vous menace ?"
+    }
+  }
+}

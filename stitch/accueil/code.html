@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Après l'accident - Accueil</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#ddc0be",
+                      "tertiary-fixed": "#aaf0e6",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#fef9ef",
+                      "primary-fixed-dim": "#ffb3af",
+                      "secondary-container": "#eaddd2",
+                      "on-error": "#ffffff",
+                      "primary": "#6c1518",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#003e39",
+                      "on-tertiary-container": "#86cbc1",
+                      "tertiary-fixed-dim": "#8ed3ca",
+                      "surface-container": "#f2ede3",
+                      "secondary-fixed-dim": "#d1c4b9",
+                      "inverse-on-surface": "#f5f0e6",
+                      "surface-container-high": "#ede8de",
+                      "on-primary-container": "#ffa8a3",
+                      "surface-tint": "#a23d3b",
+                      "on-primary-fixed-variant": "#822526",
+                      "surface-container-low": "#f8f3e9",
+                      "inverse-surface": "#32302a",
+                      "on-secondary-fixed-variant": "#4d453d",
+                      "primary-container": "#8b2c2c",
+                      "tertiary-container": "#005750",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#6a6158",
+                      "on-primary-fixed": "#410005",
+                      "surface-bright": "#fef9ef",
+                      "surface-variant": "#e7e2d8",
+                      "surface-container-highest": "#e7e2d8",
+                      "on-secondary-fixed": "#211b14",
+                      "on-surface": "#1d1c16",
+                      "on-tertiary-fixed-variant": "#00504a",
+                      "on-secondary": "#ffffff",
+                      "outline": "#897170",
+                      "inverse-primary": "#ffb3af",
+                      "secondary-fixed": "#ede0d5",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#00201d",
+                      "surface-dim": "#dedad0",
+                      "surface": "#fef9ef",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#ffdad7",
+                      "on-surface-variant": "#564240",
+                      "on-background": "#1d1c16",
+                      "secondary": "#665d54",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Newsreader"
+                      ],
+                      "body": [
+                              "Newsreader"
+                      ],
+                      "label": [
+                              "Newsreader"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            position: relative;
+        }
+        
+        /* Subtle paper grain texture via pseudo-element */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .btn-primary {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+            border-radius: 0;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-image: linear-gradient(to bottom right, theme('colors.primary'), theme('colors.primary-container'));
+        }
+        
+        .btn-primary:hover {
+            background-color: theme('colors.primary-container');
+            background-image: none;
+        }
+
+        .btn-secondary {
+            color: theme('colors.on-surface');
+            border-bottom: 1px solid rgba(137, 113, 112, 0.3); /* outline-variant at 30% */
+            transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-secondary:hover {
+            border-color: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between p-8 md:p-16">
+<!-- Intentional Whitespace Spacer -->
+<div class="flex-grow flex items-center justify-center w-full max-w-4xl">
+<main class="flex flex-col items-center text-center w-full space-y-16">
+<!-- Hero Sketch Area -->
+<div class="relative w-full max-w-md aspect-video mb-8 opacity-80">
+<img alt="Subtle ink sketch of a crashed plane in a desolate landscape" class="w-full h-full object-cover mix-blend-multiply grayscale contrast-125 rounded-none" data-alt="Monochrome pencil sketch style illustration of a crashed vintage airplane in a barren, desolate snowy landscape, moody atmosphere, subtle grain texture, minimalist line art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbLVaLpUZMNmARkPaFkdsEjFryQHO5NUZmE4x6BW36C7lZCqzm0eWOZJlZ4tJ8YUYg3OZXnqEw6Kkkd00qzFsnHvSBe6516AXy9bmknn_VAcdKMWtcrAxFlP6taZxqZB6UAMr8sZq6Qd13QBjB8fzokHmAjli0fnDxfeBKriZzABsp_d-yeiAmbM07Imyrf27eDMEiRGX1WMJKV0iYOv0rk30hEwLfY9CoqXUIREBw6dMAsiVKBsQA6rvyBoxypUgXCYh2SaaeoQ"/>
+</div>
+<!-- Monumental Typography -->
+<div class="space-y-4">
+<h1 class="text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-semibold tracking-tighter leading-none text-on-surface">
+                    Après l'accident
+                </h1>
+</div>
+<!-- Call to Actions -->
+<div class="flex flex-col items-center space-y-8 mt-12">
+<button class="btn-primary px-12 py-5 text-xl md:text-2xl font-body tracking-wide shadow-[0_20px_40px_rgba(29,28,22,0.06)]">
+                    Nouvelle partie
+                </button>
+<button class="btn-secondary px-4 py-2 text-lg md:text-xl font-body tracking-wide pb-1">
+                    Reprendre la partie
+                </button>
+</div>
+</main>
+</div>
+<!-- Footer Links -->
+<footer class="w-full max-w-4xl flex justify-center space-x-12 mt-16 pt-8">
+<a class="text-sm md:text-[0.6875rem] font-label uppercase tracking-[0.05rem] text-secondary hover:text-on-surface transition-colors duration-300 pb-1 border-b border-transparent hover:border-outline-variant/30" href="#">
+            À propos du jeu
+        </a>
+<a class="text-sm md:text-[0.6875rem] font-label uppercase tracking-[0.05rem] text-secondary hover:text-on-surface transition-colors duration-300 pb-1 border-b border-transparent hover:border-outline-variant/30" href="#">
+            Crédits
+        </a>
+</footer>
+</body></html>

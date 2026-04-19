@@ -1,0 +1,49 @@
+{
+  "suit": "diamond",
+  "act": 2,
+  "title": "Un endroit mystérieux",
+  "cards": {
+    "ace": {
+      "text": "Vous avez découvert un endroit qui vous avait échappé jusqu'ici. Qu'a-t-il de particulier ?"
+    },
+    "king": {
+      "text": "Vous vous êtes fabriqué un objet inutile. Quel souvenir fait-il remonter ?"
+    },
+    "queen": {
+      "text": "Quelle légende aviez-vous entendue à propos de cet endroit ? La réalité rend-elle justice à la légende ? De quelle manière ?"
+    },
+    "jack": {
+      "text": "Pourquoi êtes-vous revenue précipitamment à votre campement aujourd'hui ?"
+    },
+    "10": {
+      "text": "Vous n'êtes pas seule ici. Qu'avez-vous aperçu ? Pourquoi être restée cachée ?",
+      "pistes": ["Impossible", "Culte", "Vengeance"]
+    },
+    "9": {
+      "text": "Vous avez fait une drôle de rencontre. Racontez-la.",
+      "pistes": ["Esprit", "Animal", "Mourant"]
+    },
+    "8": {
+      "text": "Sur quelles traces êtes-vous tombée ?",
+      "pistes": ["Message", "Autel", "Animal"]
+    },
+    "7": {
+      "text": "Qu'est-ce qui vous fait vous sentir mieux aujourd'hui ?"
+    },
+    "6": {
+      "text": "Un détail de l'accident vous est revenu en mémoire. Décrivez-le."
+    },
+    "5": {
+      "text": "Quelque chose de trivial vous manque terriblement aujourd'hui. Qu'est-ce ?"
+    },
+    "4": {
+      "text": "Vous avez assemblé une arme. Quelle est-elle ? Comment avez-vous fait et surtout pour quelle raison ?"
+    },
+    "3": {
+      "text": "Quel moyen de subsistance avez-vous à votre disposition ? Combien de jours pensez-vous tenir avec ?"
+    },
+    "2": {
+      "text": "En relisant votre journal, vous remarquez que vous avez inconsciemment omis quelque chose. Qu'est-ce que cela vous fait ?"
+    }
+  }
+}

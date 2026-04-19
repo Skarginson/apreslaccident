@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Première entrée - Après l'accident</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ede8de",
+                        "error": "#ba1a1a",
+                        "surface": "#fef9ef",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#8b2c2c",
+                        "primary": "#6c1518",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fef9ef",
+                        "on-primary-fixed-variant": "#822526",
+                        "on-secondary-fixed-variant": "#4d453d",
+                        "on-primary-fixed": "#410005",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e7e2d8",
+                        "on-surface": "#1d1c16",
+                        "on-background": "#1d1c16",
+                        "tertiary-fixed": "#aaf0e6",
+                        "outline-variant": "#ddc0be",
+                        "surface-variant": "#e7e2d8",
+                        "surface-dim": "#dedad0",
+                        "on-secondary-fixed": "#211b14",
+                        "on-surface-variant": "#564240",
+                        "on-primary-container": "#ffa8a3",
+                        "surface-tint": "#a23d3b",
+                        "outline": "#897170",
+                        "on-secondary-container": "#6a6158",
+                        "tertiary": "#003e39",
+                        "on-error-container": "#93000a",
+                        "background": "#fef9ef",
+                        "on-tertiary-container": "#86cbc1",
+                        "on-tertiary-fixed": "#00201d",
+                        "inverse-surface": "#32302a",
+                        "secondary": "#665d54",
+                        "tertiary-container": "#005750",
+                        "secondary-container": "#eaddd2",
+                        "secondary-fixed-dim": "#d1c4b9",
+                        "secondary-fixed": "#ede0d5",
+                        "surface-container": "#f2ede3",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5f0e6",
+                        "primary-fixed": "#ffdad7",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb3af",
+                        "tertiary-fixed-dim": "#8ed3ca",
+                        "surface-container-low": "#f8f3e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Newsreader", "serif"],
+                        "label": ["Newsreader", "serif"],
+                        "journal": ["Caveat", "cursive"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            position: relative;
+        }
+        /* Subtle paper texture overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+        }
+        .journal-textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid theme('colors.outline-variant');
+            resize: none;
+            outline: none;
+        }
+        .journal-textarea:focus {
+            border-bottom-color: theme('colors.primary');
+            background-color: theme('colors.surface-container-low');
+        }
+        .ink-gradient {
+            background: linear-gradient(135deg, theme('colors.primary') 0%, theme('colors.primary-container') 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body selection:bg-primary-container selection:text-on-primary">
+<!-- Intentional Full Screen Focus, No Navigation -->
+<main class="flex-grow flex flex-col items-center justify-center p-8 md:p-16 max-w-4xl mx-auto w-full gap-16 relative z-10">
+<!-- The Card -->
+<div class="flex flex-col items-center gap-6">
+<div class="w-48 h-72 bg-surface-container-highest flex flex-col items-center justify-center border border-outline-variant/30 shadow-[0_20px_40px_rgba(29,28,22,0.06)] relative overflow-hidden group">
+<!-- Abstract Queen of Spades representation (No font-based icons for this, using an SVG path) -->
+<svg class="w-24 h-24 text-secondary stroke-current fill-none stroke-[0.5]" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<!-- Spades-like rough sketch -->
+<path d="M12 2C8 8 5 12 5 16C5 19 8 22 12 22C16 22 19 19 19 16C19 12 16 8 12 2Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12 22V16" stroke-linecap="round" stroke-linejoin="round"></path>
+<text dominant-baseline="middle" fill="currentColor" font-family="Newsreader" font-size="8" stroke="none" text-anchor="middle" x="50%" y="40%">Q</text>
+</svg>
+<div class="absolute inset-0 bg-surface-dim mix-blend-multiply opacity-20 pointer-events-none"></div>
+</div>
+<p class="font-headline text-[0.6875rem] tracking-[0.05rem] uppercase text-secondary">Tirage du Destin</p>
+</div>
+<!-- The Wound Text (Editorial Tension) -->
+<div class="w-full text-center max-w-2xl mx-auto mt-8 mb-12">
+<h1 class="font-headline text-4xl md:text-5xl leading-tight text-on-surface">
+                Une plaie à l'épaule, profonde, qui s'infecte.
+            </h1>
+</div>
+<!-- The Journal Area -->
+<div class="w-full max-w-2xl flex flex-col gap-4">
+<textarea aria-label="Journal entry area" class="journal-textarea font-journal text-2xl md:text-3xl text-on-surface placeholder:text-outline-variant w-full min-h-[200px] p-4 transition-colors duration-300" placeholder="Commencez votre journal..."></textarea>
+</div>
+<!-- The Solemn Button -->
+<div class="mt-8 mb-16">
+<button class="ink-gradient text-on-primary font-headline text-lg px-12 py-4 tracking-wide hover:brightness-110 transition-all duration-300 flex items-center gap-3">
+<span>Terminer cette entrée</span>
+<span aria-hidden="true" class="material-symbols-outlined text-sm font-light" style="font-variation-settings: 'FILL' 0;">done_all</span>
+</button>
+</div>
+</main>
+</body></html>

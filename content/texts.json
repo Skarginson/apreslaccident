@@ -1,0 +1,46 @@
+{
+  "safetyIntro": {
+    "title": "Sécurité émotionnelle et thèmes abordés",
+    "paragraphs": [
+      "Après l'Accident est un jeu en solitaire. Vous êtes seul maître à bord de votre histoire, mais les propositions faites par le jeu pourraient vous amener vers des thèmes que vous ne souhaitez pas aborder.",
+      "N'hésitez pas à retirer toute carte du jeu qui vous dérange ou vous angoisse. Faites une pause, allez prendre l'air, et revenez plus tard au jeu. L'important est de toujours prendre soin de vous."
+    ]
+  },
+  "frameDefinition": {
+    "title": "Définition du Cadre",
+    "intro": "Le joueur prend le temps de définir le cadre dans lequel il souhaite jouer. Il s'agit d'imaginer l'univers où évolue la Survivante.",
+    "openingQuestions": [
+      "S'agit-il du nôtre ou d'un univers fantastique ?",
+      "S'inspire-t-il d'une fiction connue ?",
+      "Dans quel environnement s'est échouée la Survivante ?",
+      "Par quelles circonstances s'est-elle retrouvée dans cette situation ?"
+    ],
+    "keyElements": [
+      {
+        "label": "Un accident",
+        "question": "Que s'est-il passé ?"
+      },
+      {
+        "label": "Un endroit isolé",
+        "question": "Où se trouve la Survivante ?"
+      },
+      {
+        "label": "Une survivante esseulée",
+        "question": "Qui est la Survivante ? Pourquoi est-elle seule ?"
+      },
+      {
+        "label": "Une aide possible, mais lointaine",
+        "question": "Quels secours peut espérer la Survivante ?"
+      }
+    ]
+  },
+  "firstEntry": {
+    "title": "Première entrée",
+    "intro": "La Survivante dispose d'un moyen d'enregistrer un journal, où elle va consigner son expérience, chaque jour. Ceci est sa première entrée. Une figure de pique est tirée au hasard pour introduire la blessure initiale."
+  },
+  "endOfGame": {
+    "title": "Fin de la partie",
+    "intro": "Quand l'As de Pique est tiré, la partie du joueur se termine et l'aventure de la Survivante touche à sa fin. Une figure de pique est tirée au hasard pour l'épilogue.",
+    "outro": "Le joueur peut réfléchir à ce qui arrive par la suite, ou juste refermer le volet de cette aventure."
+  }
+}

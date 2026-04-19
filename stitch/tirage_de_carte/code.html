@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Après l'accident - The Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ede8de",
+                        "error": "#ba1a1a",
+                        "surface": "#fef9ef",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#8b2c2c",
+                        "primary": "#6c1518",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fef9ef",
+                        "on-primary-fixed-variant": "#822526",
+                        "on-secondary-fixed-variant": "#4d453d",
+                        "on-primary-fixed": "#410005",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e7e2d8",
+                        "on-surface": "#1d1c16",
+                        "on-background": "#1d1c16",
+                        "tertiary-fixed": "#aaf0e6",
+                        "outline-variant": "#ddc0be",
+                        "surface-variant": "#e7e2d8",
+                        "surface-dim": "#dedad0",
+                        "on-secondary-fixed": "#211b14",
+                        "on-surface-variant": "#564240",
+                        "on-primary-container": "#ffa8a3",
+                        "surface-tint": "#a23d3b",
+                        "outline": "#897170",
+                        "on-secondary-container": "#6a6158",
+                        "tertiary": "#003e39",
+                        "on-error-container": "#93000a",
+                        "background": "#fef9ef",
+                        "on-tertiary-container": "#86cbc1",
+                        "on-tertiary-fixed": "#00201d",
+                        "inverse-surface": "#32302a",
+                        "secondary": "#665d54",
+                        "tertiary-container": "#005750",
+                        "secondary-container": "#eaddd2",
+                        "secondary-fixed-dim": "#d1c4b9",
+                        "secondary-fixed": "#ede0d5",
+                        "surface-container": "#f2ede3",
+                        "on-tertiary-fixed-variant": "#00504a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5f0e6",
+                        "primary-fixed": "#ffdad7",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb3af",
+                        "tertiary-fixed-dim": "#8ed3ca",
+                        "surface-container-low": "#f8f3e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Newsreader", "serif"],
+                        "label": ["Newsreader", "serif"],
+                        "journal": ["Caveat", "cursive"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .paper-texture {
+            position: relative;
+        }
+        .paper-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .journal-text {
+            font-family: 'Caveat', cursive;
+        }
+
+        .ink-gradient {
+            background: linear-gradient(135deg, #6c1518 0%, #8b2c2c 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body paper-texture min-h-screen flex antialiased">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex h-full w-64 flex-col p-8 gap-12 bg-[#f2efea] dark:bg-[#1d1c16] text-[#8b2c2c] dark:text-[#6c1518] rounded-none border-r-0 shadow-[0_20px_40px_rgba(29,28,22,0.06)] shrink-0 z-20 relative" style="border-right: 1px solid #e8e4db;">
+<!-- Header -->
+<div class="flex flex-col gap-2">
+<h1 class="font-['Newsreader'] text-xl font-medium text-[#1d1c16] dark:text-[#f2efea]">
+                Après l'accident
+            </h1>
+<p class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem] text-[#665d54] dark:text-[#a8a29e]">
+                Solemn Record of the Void
+            </p>
+</div>
+<!-- CTA -->
+<button class="w-full py-3 px-4 bg-[#6c1518] text-white font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem] hover:bg-[#8b2c2c] transition-colors duration-300 scale-100 active:scale-[0.99] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 16px;">edit</span>
+            New Entry
+        </button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-4 flex-grow">
+<!-- Active: Cartomancy -->
+<a class="flex items-center gap-3 text-[#665d54] dark:text-[#a8a29e] hover:text-[#1d1c16] dark:hover:text-[#f2efea] transition-colors duration-300 scale-100 active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem]">Current Ledger</span>
+</a>
+<a class="flex items-center gap-3 text-[#665d54] dark:text-[#a8a29e] hover:text-[#1d1c16] dark:hover:text-[#f2efea] transition-colors duration-300 scale-100 active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem]">History Stack</span>
+</a>
+<a class="flex items-center gap-3 text-[#665d54] dark:text-[#a8a29e] hover:text-[#1d1c16] dark:hover:text-[#f2efea] transition-colors duration-300 scale-100 active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem]">The Archive</span>
+</a>
+<a class="flex items-center gap-3 text-[#8b2c2c] dark:text-[#6c1518] border-b border-[#8b2c2c]/30 pb-1 hover:text-[#1d1c16] dark:hover:text-[#f2efea] transition-colors duration-300 scale-100 active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">playing_cards</span>
+<span class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem]">Cartomancy</span>
+</a>
+</nav>
+<!-- Footer Tab -->
+<div class="mt-auto">
+<a class="flex items-center gap-3 text-[#665d54] dark:text-[#a8a29e] hover:text-[#1d1c16] dark:hover:text-[#f2efea] transition-colors duration-300 scale-100 active:scale-[0.99]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Newsreader'] uppercase tracking-[0.05rem] text-[0.6875rem]">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 relative overflow-y-auto bg-surface flex flex-col items-center justify-center p-6 md:p-12 z-10">
+<!-- Asymmetric Container for the Card Interaction -->
+<div class="w-full max-w-4xl flex flex-col items-center relative">
+<!-- Decorative atmospheric text -->
+<div class="absolute top-0 right-0 opacity-20 pointer-events-none select-none -translate-y-12 translate-x-12 hidden md:block">
+<span class="font-headline text-8xl text-surface-container-high rotate-90 origin-top-right whitespace-nowrap">SEVEN OF HEARTS</span>
+</div>
+<!-- The Card Area -->
+<div class="relative w-64 h-96 bg-surface-container-highest shadow-[0_20px_40px_rgba(29,28,22,0.12)] flex flex-col items-center justify-center p-6 transform -rotate-2 hover:rotate-0 transition-transform duration-700 ease-out z-10 mb-16">
+<!-- Inner border for card feel -->
+<div class="absolute inset-2 border border-outline-variant opacity-50 pointer-events-none"></div>
+<!-- Corner Indicators -->
+<div class="absolute top-4 left-4 flex flex-col items-center">
+<span class="font-headline text-2xl text-primary leading-none">7</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="absolute bottom-4 right-4 flex flex-col items-center rotate-180">
+<span class="font-headline text-2xl text-primary leading-none">7</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Center Graphic -->
+<div class="flex flex-col items-center justify-center gap-4">
+<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<!-- Content Area - Misaligned intentionally -->
+<div class="w-full max-w-2xl translate-x-4 md:translate-x-12">
+<!-- Prompt Text -->
+<div class="mb-12 border-l border-outline-variant/30 pl-8 py-2">
+<p class="journal-text text-3xl md:text-4xl text-on-surface leading-relaxed">
+                        Un souvenir de chaleur, une voix qui vous appelle.
+                    </p>
+</div>
+<!-- Tag Selection -->
+<div class="flex flex-col gap-6 mb-16 pl-8">
+<p class="font-headline text-label-sm uppercase tracking-[0.05rem] text-secondary">
+                        Sélecteur de piste
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-3 bg-surface-container-low hover:bg-surface-container-high text-on-surface font-headline transition-colors duration-300 border-b border-outline-variant/30">
+                            Signal
+                        </button>
+<button class="px-6 py-3 bg-surface-container-low hover:bg-surface-container-high text-on-surface font-headline transition-colors duration-300 border-b border-outline-variant/30">
+                            Jouet
+                        </button>
+<button class="px-6 py-3 bg-surface-container-low hover:bg-surface-container-high text-on-surface font-headline transition-colors duration-300 border-b border-outline-variant/30">
+                            Animal
+                        </button>
+</div>
+</div>
+<!-- Skip Option -->
+<div class="pl-8">
+<button class="group flex items-center gap-2 text-secondary hover:text-on-surface transition-colors duration-300">
+<span class="font-headline text-sm border-b border-outline-variant/30 pb-1 group-hover:border-on-surface/50 transition-colors">
+                            Je ne suis pas de piste cette fois
+                        </span>
+<span class="material-symbols-outlined text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
