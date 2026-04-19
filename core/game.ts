@@ -27,7 +27,7 @@ export function createGame(input: CreateGameInput, rng: Rng = defaultRng): Game 
     updatedAt: now,
     status: "playing",
     frame: input.frame,
-    survivor: input.survivor,
+    ...(input.survivor !== undefined ? { survivor: input.survivor } : {}),
     woundCard: input.woundCard,
     epilogueCard: null,
     storyDeck,
