@@ -1,65 +1,96 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { loadLatestGame } from "@/lib/storage";
+import type { Game } from "@/core/types";
+
+export default function HomePage() {
+  const [latestGame, setLatestGame] = useState<Game | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    loadLatestGame()
+      .then((g) => setLatestGame(g ?? null))
+      .catch(() => setLatestGame(null))
+      .finally(() => setChecked(true));
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen flex flex-col items-center justify-between p-8 md:p-16">
+      {/* Zone principale */}
+      <div className="flex-grow flex items-center justify-center w-full max-w-4xl">
+        <main className="flex flex-col items-center text-center w-full gap-16">
+          {/* Illustration esquisse */}
+          <div className="relative w-full max-w-md aspect-video opacity-70">
+            {/* Placeholder SVG — avion échoué, style esquisse */}
+            <svg
+              viewBox="0 0 400 225"
+              className="w-full h-full"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line x1="20" y1="180" x2="380" y2="180" stroke="#897170" strokeWidth="1" opacity="0.4" />
+              {/* Corps de l'avion */}
+              <ellipse cx="200" cy="160" rx="90" ry="18" stroke="#564240" strokeWidth="1.5" />
+              {/* Aile gauche */}
+              <path d="M 140 160 L 60 130 L 80 165" stroke="#564240" strokeWidth="1.5" />
+              {/* Aile droite */}
+              <path d="M 260 160 L 340 130 L 320 165" stroke="#564240" strokeWidth="1.5" />
+              {/* Stabilisateur */}
+              <path d="M 290 160 L 310 140 L 310 160" stroke="#564240" strokeWidth="1.2" />
+              {/* Nez cassé */}
+              <path d="M 200 142 C 240 138, 285 148, 290 160" stroke="#564240" strokeWidth="1.2" />
+              {/* Débris */}
+              <line x1="100" y1="180" x2="110" y2="168" stroke="#897170" strokeWidth="1" />
+              <line x1="280" y1="180" x2="295" y2="172" stroke="#897170" strokeWidth="1" />
+              <line x1="160" y1="180" x2="155" y2="170" stroke="#897170" strokeWidth="0.8" />
+              {/* Horizon lointain */}
+              <line x1="20" y1="100" x2="380" y2="100" stroke="#ddc0be" strokeWidth="0.5" />
+            </svg>
+          </div>
+
+          {/* Titre monumental */}
+          <h1 className="text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-semibold tracking-tighter leading-none text-on-surface">
+            Après l&apos;accident
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+          {/* Actions */}
+          <div className="flex flex-col items-center gap-8 mt-4">
+            <Link href="/game/new">
+              <button className="btn-primary px-12 py-5 text-xl md:text-2xl font-body tracking-wide ambient-shadow">
+                Nouvelle partie
+              </button>
+            </Link>
+
+            {checked && latestGame && latestGame.status === "playing" && (
+              <Link href={`/game/${latestGame.id}`}>
+                <button className="btn-secondary px-4 py-2 text-lg md:text-xl font-body tracking-wide pb-1">
+                  Reprendre la partie
+                </button>
+              </Link>
+            )}
+          </div>
+        </main>
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full max-w-4xl flex justify-center gap-12 mt-16 pt-8">
+        <Link
+          href="/about"
+          className="text-[0.6875rem] font-label uppercase tracking-[0.05rem] text-secondary hover:text-on-surface transition-colors duration-300 pb-1 border-b border-transparent hover:border-outline-variant/30"
+        >
+          À propos du jeu
+        </Link>
+        <a
+          href="https://gulix.itch.io/leads"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[0.6875rem] font-label uppercase tracking-[0.05rem] text-secondary hover:text-on-surface transition-colors duration-300 pb-1 border-b border-transparent hover:border-outline-variant/30"
+        >
+          Système LEADS
+        </a>
+      </footer>
     </div>
   );
 }
