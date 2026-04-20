@@ -6,6 +6,21 @@ import Link from "next/link";
 import { useGameStore } from "@/stores/useGameStore";
 import { GameSideNav } from "@/components/game/GameSideNav";
 
+const ACT_LABELS: Record<1 | 2 | 3, string> = {
+  1: "Les premiers jours",
+  2: "Un endroit mystérieux",
+  3: "Tout s'emballe",
+};
+
+function currentAct(storyDeck: string[], discardPile: string[]): 1 | 2 | 3 {
+  const next =
+    storyDeck.find((c) => !c.startsWith("spade-")) ??
+    [...discardPile].reverse().find((c) => !c.startsWith("spade-"));
+  if (next?.startsWith("diamond-")) return 2;
+  if (next?.startsWith("club-")) return 3;
+  return 1;
+}
+
 export default function GameHubPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
@@ -34,6 +49,8 @@ export default function GameHubPage() {
   }
 
   const dayNumber = game.entries.length + 1;
+  const act = currentAct(game.storyDeck, game.discardPile);
+  const actLabel = ACT_LABELS[act];
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
@@ -49,8 +66,7 @@ export default function GameHubPage() {
           {/* Texte de contexte */}
           <div className="text-center max-w-md">
             <p className="font-journal text-2xl text-on-surface-variant leading-relaxed opacity-80 mb-3">
-              {game.frame.description.slice(0, 120)}
-              {game.frame.description.length > 120 ? "…" : ""}
+              {actLabel}
             </p>
             <p className="font-headline text-lg text-on-surface opacity-60 italic">
               Que réserve le jour {dayNumber} ?

@@ -7,6 +7,7 @@ import {
   playEntry as corePlayEntry,
   concludeGame as coreConcludeGame,
   writeEpilogueEntry as coreWriteEpilogueEntry,
+  drawAceAndConclude as coreDrawAceAndConclude,
   type CreateGameInput,
   type WriteEpilogueInput,
 } from "@/core/game";
@@ -38,6 +39,7 @@ interface GameStore {
   playEntry: (input: PlayEntryStoreInput) => Promise<{ drawnCard: CardId; gameEnded: boolean }>;
   concludeGame: (epilogueCard: Game["epilogueCard"]) => Promise<void>;
   writeEpilogueEntry: (input: WriteEpilogueInput) => Promise<void>;
+  drawAceAndConclude: () => Promise<void>;
 
   /* ─── Utilitaires ─── */
   availableSlots: () => CardId[];
@@ -113,6 +115,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) throw new Error("Aucune partie active");
     const updated = coreWriteEpilogueEntry(game, input);
+    await saveGame(updated);
+    set({ game: updated });
+  },
+
+  drawAceAndConclude: async () => {
+    const { game } = get();
+    if (!game) throw new Error("Aucune partie active");
+    const updated = coreDrawAceAndConclude(game);
     await saveGame(updated);
     set({ game: updated });
   },

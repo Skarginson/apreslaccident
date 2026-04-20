@@ -113,6 +113,27 @@ export function concludeGame(game: Game, input: ConcludeGameInput): Game {
   };
 }
 
+/**
+ * Draw the Ace of Spades and mark the game as concluded, without writing a journal entry.
+ * Used when the player draws the Ace — the epilogue prompt is what they write, not an Ace entry.
+ */
+export function drawAceAndConclude(game: Game): Game {
+  if (game.status !== "playing") {
+    throw new Error("Cannot draw ace on a game that is not in playing status");
+  }
+  const [top, remaining] = drawTopCard(game.storyDeck);
+  if (top !== "spade-ace") {
+    throw new Error("Top card is not spade-ace");
+  }
+  return {
+    ...game,
+    updatedAt: new Date().toISOString(),
+    status: "concluded",
+    storyDeck: remaining,
+    discardPile: [...game.discardPile, "spade-ace"],
+  };
+}
+
 export interface WriteEpilogueInput {
   journalText: string;
   promptSnapshot: string;

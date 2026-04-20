@@ -88,6 +88,12 @@ export default function EndPage() {
       {/* Boutons d'export */}
       {isClosed && (
         <div className="absolute top-8 right-8 flex gap-6">
+          <Link
+            href={`/game/${id}/print`}
+            className="font-label text-[0.6875rem] uppercase tracking-widest text-secondary hover:text-on-surface transition-colors pb-1 border-b border-outline-variant/30 hover:border-outline-variant flex items-center gap-2"
+          >
+            ⎙ Exporter en PDF
+          </Link>
           <button
             onClick={handleExport}
             className="font-label text-[0.6875rem] uppercase tracking-widest text-secondary hover:text-on-surface transition-colors pb-1 border-b border-outline-variant/30 hover:border-outline-variant flex items-center gap-2"

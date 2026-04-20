@@ -22,7 +22,7 @@ type DrawStep = "draw" | "flip" | "piste-choice" | "slot-assignment" | "write";
 export default function DrawPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const { game, isLoading, loadGame, playEntry, availableSlots } = useGameStore();
+  const { game, isLoading, loadGame, playEntry, drawAceAndConclude, availableSlots } = useGameStore();
 
   const [step, setStep] = useState<DrawStep>("draw");
   const [drawnCard, setDrawnCard] = useState<CardId | null>(null);
@@ -172,13 +172,22 @@ export default function DrawPage() {
 
   /* ─── Étape : Animation de retournement ─── */
   if (step === "flip" && drawnCard) {
+    const handleFlipComplete = async () => {
+      if (drawnCard === "spade-ace") {
+        await drawAceAndConclude();
+        router.push(`/game/${id}/end`);
+      } else {
+        setStep(nextStepRef.current);
+      }
+    };
+
     return (
       <div className="min-h-screen flex flex-col md:flex-row">
         <GameSideNav game={game} />
         <main className="flex-1 flex items-center justify-center p-8 md:p-16">
           <CardFlip
             cardId={drawnCard}
-            onComplete={() => setStep(nextStepRef.current)}
+            onComplete={handleFlipComplete}
           />
         </main>
       </div>
