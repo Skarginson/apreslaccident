@@ -15,6 +15,7 @@ type Step =
   | "frame-choice"
   | "frame-browse"
   | "frame-custom"
+  | "frame-random"
   | "wound"
   | "first-entry";
 
@@ -74,7 +75,8 @@ export default function NewGamePage() {
         const idx = Math.floor(rng() * frames.length);
         const frame = frames[idx] ?? frames[0];
         if (frame) setSelectedFrame(frame);
-        setStep("wound");
+        setQuestionAnswers({});
+        setStep("frame-random");
       } else if (type === "preset") {
         setStep("frame-browse");
       } else {
@@ -188,8 +190,18 @@ export default function NewGamePage() {
         />
       )}
 
+      {step === "frame-random" && selectedFrame && (
+        <FrameRandomStep
+          frame={selectedFrame}
+          questionAnswers={questionAnswers}
+          onAnswerChange={(key, val) => setQuestionAnswers((prev) => ({ ...prev, [key]: val }))}
+          onNext={() => setStep("wound")}
+          onBack={() => setStep("frame-choice")}
+        />
+      )}
+
       {step === "wound" && (
-        <WoundStep onDraw={drawWound} onBack={() => setStep(frameType === "random" ? "frame-choice" : frameType === "preset" ? "frame-browse" : "frame-custom")} />
+        <WoundStep onDraw={drawWound} onBack={() => setStep(frameType === "random" ? "frame-random" : frameType === "preset" ? "frame-browse" : "frame-custom")} />
       )}
 
       {step === "first-entry" && woundCard && (
@@ -486,6 +498,58 @@ function FrameCustomStep({
             disabled={!title.trim()}
             className="btn-primary px-10 py-4 font-label text-[0.6875rem] uppercase tracking-[0.05rem] w-fit"
           >
+            Continuer
+          </button>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function FrameRandomStep({
+  frame,
+  questionAnswers,
+  onAnswerChange,
+  onNext,
+  onBack,
+}: {
+  frame: FrameEntry;
+  questionAnswers: Record<string, string>;
+  onAnswerChange: (key: string, val: string) => void;
+  onNext: () => void;
+  onBack: () => void;
+}) {
+  return (
+    <main className="flex-1 flex flex-col items-center p-6 md:p-16">
+      <div className="w-full max-w-3xl">
+        <StepHeader step="Étape 2 — Cadre tiré au sort" title={frame.title} onBack={onBack} />
+
+        <div className="border-l-2 border-primary/30 pl-8 flex flex-col gap-8">
+          {frame.sections.map((section, si) => (
+            <div key={si} className="flex flex-col gap-4">
+              <p className="font-body text-base text-on-surface leading-relaxed italic">
+                {section.text}
+              </p>
+              {section.questions.map((q, qi) => (
+                <div key={qi} className="flex flex-col gap-2">
+                  <label className="font-label text-[0.6875rem] uppercase tracking-[0.05rem] text-secondary">
+                    {q}
+                  </label>
+                  <input
+                    type="text"
+                    value={questionAnswers[`${si}-${qi}`] ?? ""}
+                    onChange={(e) => onAnswerChange(`${si}-${qi}`, e.target.value)}
+                    className="bg-transparent border-b border-outline-variant focus:border-primary outline-none font-body text-base text-on-surface py-1 transition-colors duration-200"
+                    placeholder="Votre réponse..."
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <button onClick={onNext} className="btn-primary px-10 py-4 font-label text-[0.6875rem] uppercase tracking-[0.05rem]">
             Continuer
           </button>
         </div>
