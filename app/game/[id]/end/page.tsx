@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import type { CardId } from "@/core/types";
 import { useGameStore } from "@/stores/useGameStore";
 import { getEpilogueText } from "@/lib/content";
 import { downloadMarkdown } from "@/lib/export";
@@ -24,7 +23,7 @@ function pickEpilogueCard(): "spade-king" | "spade-queen" | "spade-jack" {
 
 export default function EndPage() {
   const { id } = useParams<{ id: string }>();
-  const { game, isLoading, loadGame, concludeGame, playEntry } = useGameStore();
+  const { game, isLoading, loadGame, writeEpilogueEntry } = useGameStore();
 
   const [epilogueCard, setEpilogueCard] = useState<"spade-king" | "spade-queen" | "spade-jack" | null>(null);
   const [journalText, setJournalText] = useState("");
@@ -52,19 +51,17 @@ export default function EndPage() {
     if (!epilogueCard || !journalText.trim() || isSubmitting) return;
     setIsSubmitting(true);
     try {
-      const epilogueText = getEpilogueText(epilogueCard);
-      await playEntry({
+      await writeEpilogueEntry({
         journalText,
-        promptSnapshot: epilogueText,
-        pistesOffered: null,
+        promptSnapshot: getEpilogueText(epilogueCard),
+        epilogueCard,
       });
-      await concludeGame(epilogueCard);
       setIsClosed(true);
     } catch (e) {
       console.error(e);
       setIsSubmitting(false);
     }
-  }, [epilogueCard, journalText, isSubmitting, playEntry, concludeGame]);
+  }, [epilogueCard, journalText, isSubmitting, writeEpilogueEntry]);
 
   const handleExport = useCallback(() => {
     if (game) downloadMarkdown(game);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import type { CardId, PisteWord } from "@/core/types";
 import { useGameStore } from "@/stores/useGameStore";
@@ -17,7 +17,7 @@ import { PromptDisplay } from "@/components/game/PromptDisplay";
 import { JournalEditor } from "@/components/game/JournalEditor";
 import { GameSideNav } from "@/components/game/GameSideNav";
 
-type DrawStep = "draw" | "piste-choice" | "slot-assignment" | "write";
+type DrawStep = "draw" | "flip" | "piste-choice" | "slot-assignment" | "write";
 
 export default function DrawPage() {
   const { id } = useParams<{ id: string }>();
@@ -26,6 +26,7 @@ export default function DrawPage() {
 
   const [step, setStep] = useState<DrawStep>("draw");
   const [drawnCard, setDrawnCard] = useState<CardId | null>(null);
+  const nextStepRef = useRef<"piste-choice" | "write">("write");
   const [prompt, setPrompt] = useState<CardPrompt | null>(null);
   const [selectedPiste, setSelectedPiste] = useState<PisteWord | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<CardId | null>(null);
@@ -71,7 +72,8 @@ export default function DrawPage() {
       (p) => !followedSet.has(p as PisteWord) && !excludedSet.has(p as PisteWord),
     );
 
-    setStep(hasNewPiste ? "piste-choice" : "write");
+    nextStepRef.current = hasNewPiste ? "piste-choice" : "write";
+    setStep("flip");
   }, [game]);
 
   /* ─── Sélection de piste ─── */
@@ -148,27 +150,36 @@ export default function DrawPage() {
               </p>
             </div>
 
-            {/* Bouton carte */}
+            {/* Carte face cachée — clic pour tirer */}
             <button
               onClick={handleDraw}
-              className="group relative flex flex-col items-center justify-center w-64 h-80 bg-surface-container-lowest border border-outline-variant/20 ambient-shadow hover:shadow-[0_30px_60px_rgba(29,28,22,0.10)] transition-all duration-700 ease-out"
+              aria-label="Tirer la carte du jour"
+              className="group relative w-44 h-64 bg-surface-container-lowest border border-outline-variant/20 ambient-shadow hover:shadow-[0_30px_60px_rgba(29,28,22,0.10)] transition-shadow duration-700"
             >
-              <div className="absolute inset-2 bg-surface-container-low opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative z-10 flex flex-col items-center gap-8">
-                <span className="text-primary text-5xl opacity-70 group-hover:scale-110 transition-transform duration-500">
-                  ♦
+              <div className="absolute inset-2 border border-outline-variant/20 pointer-events-none" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
+                <span className="text-4xl opacity-40 group-hover:opacity-70 transition-opacity duration-500">♠</span>
+                <span className="font-label text-[0.6rem] uppercase tracking-widest text-secondary opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                  Retourner
                 </span>
-                <div className="flex flex-col items-center gap-2 px-6 text-center">
-                  <span className="font-headline text-xl text-primary-container tracking-wide group-hover:text-primary transition-colors">
-                    Tirer la carte
-                  </span>
-                  <span className="font-label text-[0.65rem] uppercase tracking-widest text-secondary">
-                    du jour
-                  </span>
-                </div>
               </div>
             </button>
           </div>
+        </main>
+      </div>
+    );
+  }
+
+  /* ─── Étape : Animation de retournement ─── */
+  if (step === "flip" && drawnCard) {
+    return (
+      <div className="min-h-screen flex flex-col md:flex-row">
+        <GameSideNav game={game} />
+        <main className="flex-1 flex items-center justify-center p-8 md:p-16">
+          <CardFlip
+            cardId={drawnCard}
+            onComplete={() => setStep(nextStepRef.current)}
+          />
         </main>
       </div>
     );
@@ -311,4 +322,71 @@ export default function DrawPage() {
   }
 
   return null;
+}
+
+/* ─────────────────────────────────────────
+   Composant d'animation de retournement
+──────────────────────────────────────────── */
+
+function CardFlip({ cardId, onComplete }: { cardId: CardId; onComplete: () => void }) {
+  const [flipped, setFlipped] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
+
+  useEffect(() => {
+    // Légère pause avant le déclenchement pour que le DOM soit peint
+    const t1 = setTimeout(() => setFlipped(true), 80);
+    // 80ms delay + 750ms flip + 900ms pause pour voir la carte
+    const t2 = setTimeout(() => onCompleteRef.current(), 1730);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center gap-10">
+      {/* Perspective container */}
+      <div style={{ perspective: "1000px" }}>
+        <div
+          style={{
+            transformStyle: "preserve-3d",
+            transition: "transform 0.75s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            width: "11rem",   /* w-44 */
+            height: "16rem",  /* h-64 */
+            position: "relative",
+          }}
+        >
+          {/* Face cachée (dos de carte) */}
+          <div
+            style={{ backfaceVisibility: "hidden" }}
+            className="absolute inset-0 bg-surface-container-lowest border border-outline-variant/20 flex items-center justify-center"
+          >
+            <div className="absolute inset-2 border border-outline-variant/20 pointer-events-none" />
+            <span className="text-4xl opacity-40">♠</span>
+          </div>
+
+          {/* Face révélée (carte tirée) */}
+          <div
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
+            className="absolute inset-0"
+          >
+            <PlayingCard cardId={cardId} size="md" />
+          </div>
+        </div>
+      </div>
+
+      {/* Label qui apparaît après le retournement */}
+      <p
+        className="font-label text-[0.6875rem] uppercase tracking-[0.05rem] text-secondary transition-opacity duration-500"
+        style={{ opacity: flipped ? 1 : 0 }}
+      >
+        {cardLabel(cardId)}
+      </p>
+    </div>
+  );
 }

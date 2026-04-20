@@ -112,3 +112,36 @@ export function concludeGame(game: Game, input: ConcludeGameInput): Game {
     epilogueCard: input.epilogueCard,
   };
 }
+
+export interface WriteEpilogueInput {
+  journalText: string;
+  promptSnapshot: string;
+  epilogueCard: "spade-king" | "spade-queen" | "spade-jack";
+}
+
+/**
+ * Write the epilogue entry on a concluded game.
+ * Combines setting epilogueCard and adding the final journal entry
+ * without drawing from the (empty) story deck.
+ */
+export function writeEpilogueEntry(game: Game, input: WriteEpilogueInput): Game {
+  if (game.status !== "concluded") {
+    throw new Error("Cannot write epilogue on a game that is not concluded");
+  }
+  const entry: Entry = {
+    id: generateId(),
+    dayNumber: game.entries.length + 1,
+    drawnAt: new Date().toISOString(),
+    cardId: input.epilogueCard,
+    promptSnapshot: input.promptSnapshot,
+    pistesOffered: null,
+    pisteFollowed: null,
+    journalText: input.journalText,
+  };
+  return {
+    ...game,
+    updatedAt: new Date().toISOString(),
+    epilogueCard: input.epilogueCard,
+    entries: [...game.entries, entry],
+  };
+}
