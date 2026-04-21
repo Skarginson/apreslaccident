@@ -25,6 +25,11 @@ Aucun back-end, aucune authentification, aucune donnée transmise hors du naviga
 
 ---
 
+## Prérequis
+
+- Node.js ≥ 20.x
+- pnpm ≥ 10.x
+
 ## Lancer le projet
 
 ```bash
@@ -33,6 +38,13 @@ pnpm dev
 ```
 
 L'application est accessible sur [http://localhost:3000](http://localhost:3000).
+
+### Avec Docker
+
+```bash
+docker build -t apreslaccident .
+docker run -p 3000:3000 apreslaccident
+```
 
 ---
 
@@ -54,6 +66,13 @@ Les tests couvrent le moteur de jeu (`core/`) à 90 %+. L'UI n'est pas testée e
 core/          Logique métier pure (deck, pistes, game) — zéro dépendance React
 content/       Données statiques JSON (cartes, pistes, cadres)
 app/           Pages Next.js (App Router)
+  about/         À propos du jeu
+  game/new/      Création de partie
+  game/[id]/     Hub de la partie en cours
+  game/[id]/draw/    Tirage + écriture du jour
+  game/[id]/journal/ Relecture des entrées
+  game/[id]/end/     Fin de partie + épilogue
+  game/[id]/print/   Export / impression
 components/    Composants React (ui/ shadcn, game/ spécifiques)
 lib/           Persistance (Dexie), export Markdown, utilitaires
 stores/        État global Zustand
