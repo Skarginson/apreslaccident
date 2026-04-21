@@ -54,7 +54,9 @@ export default function HomePage() {
           <h1 className="text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-semibold tracking-tighter leading-none text-on-surface">
             Après l&apos;accident
           </h1>
-
+          <h2 className="text-2xl md:text-3xl font-label uppercase tracking-wide text-secondary">
+            Journal d'une rescapée
+          </h2>
           {/* Actions */}
           <div className="flex flex-col items-center gap-8 mt-4">
             <Link href="/game/new">
