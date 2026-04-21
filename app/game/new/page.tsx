@@ -324,10 +324,11 @@ function FrameChoiceStep({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 items-center">
           {/* Hasard */}
           <button
+            type="button"
             onClick={() => onChoice("random")}
-            className="group flex flex-col items-center text-left md:mt-16 w-full max-w-sm mx-auto transition-transform duration-300 hover:-translate-y-2"
+            className="group flex flex-col items-center text-left md:mt-16 w-full max-w-sm mx-auto"
           >
-            <div className="w-full aspect-[2/3] bg-surface-container-high ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8">
+            <div className="w-full aspect-[2/3] bg-surface-container-high ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8 transition-shadow duration-300 group-hover:shadow-[0_30px_60px_rgba(29,28,22,0.12)]">
               <div className="absolute inset-4 border border-outline-variant/30 opacity-50" />
               <div className="absolute inset-6 border border-outline-variant/20 opacity-30" />
               <span className="text-4xl text-secondary group-hover:text-primary transition-colors duration-500">⚄</span>
@@ -342,10 +343,11 @@ function FrameChoiceStep({
 
           {/* Parcourir */}
           <button
+            type="button"
             onClick={() => onChoice("preset")}
-            className="group flex flex-col items-center text-left md:-mt-8 w-full max-w-sm mx-auto transition-transform duration-300 hover:-translate-y-2"
+            className="group flex flex-col items-center text-left md:-mt-8 w-full max-w-sm mx-auto"
           >
-            <div className="w-full aspect-[2/3] bg-surface-container-lowest ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8 group-hover:bg-surface-container transition-colors duration-500">
+            <div className="w-full aspect-[2/3] bg-surface-container-lowest ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8 group-hover:bg-surface-container transition-colors duration-300 group-hover:shadow-[0_30px_60px_rgba(29,28,22,0.12)]">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-low/50" />
               <span className="text-4xl text-secondary group-hover:text-primary transition-colors duration-500 relative z-10">📖</span>
             </div>
@@ -359,10 +361,11 @@ function FrameChoiceStep({
 
           {/* Personnel */}
           <button
+            type="button"
             onClick={() => onChoice("custom")}
-            className="group flex flex-col items-center text-left md:mt-24 w-full max-w-sm mx-auto transition-transform duration-300 hover:-translate-y-2"
+            className="group flex flex-col items-center text-left md:mt-24 w-full max-w-sm mx-auto"
           >
-            <div className="w-full aspect-[2/3] bg-surface-container-low ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8">
+            <div className="w-full aspect-[2/3] bg-surface-container-low ambient-shadow mb-8 relative border border-outline-variant/15 flex items-center justify-center p-8 transition-shadow duration-300 group-hover:shadow-[0_30px_60px_rgba(29,28,22,0.12)]">
               <div className="w-3/4 h-px bg-outline-variant/30 absolute" style={{ top: "33%" }} />
               <div className="w-3/4 h-px bg-outline-variant/30 absolute" style={{ top: "50%" }} />
               <div className="w-1/2 h-px bg-outline-variant/30 absolute" style={{ top: "66%" }} />

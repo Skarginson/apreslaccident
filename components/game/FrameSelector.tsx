@@ -14,9 +14,10 @@ export function FrameSelector({ frames, selectedId, onSelect }: FrameSelectorPro
       {frames.map((frame) => (
         <button
           key={frame.id}
+          type="button"
           onClick={() => onSelect(frame.id)}
           className={[
-            "text-left p-6 transition-all duration-300 border-b-2",
+            "text-left p-6 transition-colors duration-200 border-b-2",
             selectedId === frame.id
               ? "bg-surface-container-high border-primary"
               : "bg-surface-container-low border-outline-variant/30 hover:bg-surface-container-high hover:border-primary/50",
