@@ -21,11 +21,6 @@ export default function HomePage() {
       {/* Zone principale */}
       <div className="flex-grow flex items-center justify-center w-full max-w-4xl">
         <main className="flex flex-col items-center text-center w-full gap-16">
-          {/* Illustration esquisse */}
-          <div className="relative w-full max-w-md aspect-video opacity-70">
-            {/* Placeholder SVG — avion échoué, style esquisse */}
-          </div>
-
           {/* Titre monumental */}
           <h1 className="text-6xl md:text-[5rem] lg:text-[6rem] font-headline font-semibold tracking-tighter leading-none text-on-surface">
             Après l&apos;accident
