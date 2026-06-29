@@ -24,30 +24,6 @@ export default function HomePage() {
           {/* Illustration esquisse */}
           <div className="relative w-full max-w-md aspect-video opacity-70">
             {/* Placeholder SVG — avion échoué, style esquisse */}
-            <svg
-              viewBox="0 0 400 225"
-              className="w-full h-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line x1="20" y1="180" x2="380" y2="180" stroke="#897170" strokeWidth="1" opacity="0.4" />
-              {/* Corps de l'avion */}
-              <ellipse cx="200" cy="160" rx="90" ry="18" stroke="#564240" strokeWidth="1.5" />
-              {/* Aile gauche */}
-              <path d="M 140 160 L 60 130 L 80 165" stroke="#564240" strokeWidth="1.5" />
-              {/* Aile droite */}
-              <path d="M 260 160 L 340 130 L 320 165" stroke="#564240" strokeWidth="1.5" />
-              {/* Stabilisateur */}
-              <path d="M 290 160 L 310 140 L 310 160" stroke="#564240" strokeWidth="1.2" />
-              {/* Nez cassé */}
-              <path d="M 200 142 C 240 138, 285 148, 290 160" stroke="#564240" strokeWidth="1.2" />
-              {/* Débris */}
-              <line x1="100" y1="180" x2="110" y2="168" stroke="#897170" strokeWidth="1" />
-              <line x1="280" y1="180" x2="295" y2="172" stroke="#897170" strokeWidth="1" />
-              <line x1="160" y1="180" x2="155" y2="170" stroke="#897170" strokeWidth="0.8" />
-              {/* Horizon lointain */}
-              <line x1="20" y1="100" x2="380" y2="100" stroke="#ddc0be" strokeWidth="0.5" />
-            </svg>
           </div>
 
           {/* Titre monumental */}
